@@ -5,9 +5,9 @@
                 <div class="col-12 mb-5">
                     <h3 class="title text-center">Some Talk of Our Clients</h3>
                 </div>
-                <ClientTalkBoxes title="OLIVER GOMEZ" text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,good."/>
-                <ClientTalkBoxes title="OLIVER GOMEZ" text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,good."/>
-                <ClientTalkBoxes title="OLIVER GOMEZ" text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,good."/>
+                <ClientTalkBoxes title="Martha. G" text="Quick and easy simple repair Art was nice and took care of what I needed. He gave more more information and was helpful about new brakes and tires."/>
+                <ClientTalkBoxes title="Evette. W" text="Oil change light bulb change new battery friendly service reasonable price patient explains everything timely what more can you ask for, Happy customer"/>
+                <ClientTalkBoxes title="Ricardo. M" text="I needed my brakes fixed. Took my vehicle LAX Auto repair. didn't cost me an arm and a leg they had great service and my vehicle was done within two hours. I will be bringing my vehicle back. I recommend this auto shop to anyone. They are very understanding and we'll work with you."/>
             </div>
         </div>
     </div>
