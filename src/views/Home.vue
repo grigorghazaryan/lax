@@ -1,17 +1,31 @@
 <template>
   <div class="home">
     <HeroBg/>
+    <Services/>
+    <ClientTalk/>
+    <ContactUs/>
+    <Map/>
+    <Newsletter/>
   </div>
 </template>
 
 <script>
-
-  import HeroBg from "@/components/home/HeroBg"
+  import HeroBg from "@/components/home/HeroBg";
+  import Services from "@/components/home/Services";
+  import ClientTalk from "@/components/home/ClientTalk"
+  import ContactUs from  "@/components/home/ContactUs";
+  import Map from "../components/home/Map";
+  import Newsletter from "../components/home/Newsletter";
 
 export default {
   name: 'Home',
   components: {
-    HeroBg
+    Newsletter,
+    Map,
+    ContactUs,
+    ClientTalk,
+    HeroBg,
+    Services
   }
 }
 </script>

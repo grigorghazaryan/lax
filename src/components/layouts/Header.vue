@@ -50,8 +50,9 @@
     }
     @media (min-width: 992px) {
         .navbar{
-            margin-top: 15px;
+            margin: 15px auto 0 auto;
             padding: 0 17%;
+            max-width: 1920px;
         }
     }
 </style>
