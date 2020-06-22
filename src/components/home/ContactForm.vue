@@ -20,12 +20,19 @@
                 <textarea class="form-control" placeholder="Your Message" rows="8"></textarea>
             </div>
         </div>
+        <div class="col-md-12">
+            <div class="form-group text-md-right">
+                <SubmitButton title="Send"/>
+            </div>
+        </div>
     </div>
 </template>
 
 <script>
+    import SubmitButton from "../mixed/SubmitButton";
     export default {
-        name: "ContactForm"
+        name: "ContactForm",
+        components: {SubmitButton}
     }
 </script>
 

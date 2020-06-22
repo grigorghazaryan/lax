@@ -1,25 +1,37 @@
 <template>
     <div class="main">
         <div class="hero-bg">
-            <div class="text-and-image">
-                <div class="text-part">
-                    <div class="text-cont">
-                        <p class="text-uppercase first mb-0">Getting your car</p>
-                        <p class="text-uppercase second">Back on the road</p>
+            <div class="text-and-image container text-center">
+                <div class="row text-cont">
+
+                    <div class="text-part col-md-6">
+                        <div class="text-cont">
+                            <p class="text-uppercase first mb-0">Getting your car</p>
+                            <p class="text-uppercase second">Back on the road</p>
+                        </div>
+                        <div class="button-cont mt-4">
+                            <Button title="Start Repair" url="/repair"/>
+                        </div>
                     </div>
-                    <div class="button-cont mt-4">
-                        <Button title="Start Repair" url="/repair"/>
+                    <div class="car-part col-md-6 d-none d-md-block">
+                        <img src="../../assets/home/car.png" class="img-fluid car" alt="Car">
                     </div>
-                </div>
-                <div class="car-part pl-5">
-                    <img src="../../assets/home/car.png" class="img-fluid car" alt="Car">
+                    <div class="col-md-3"></div>
                 </div>
             </div>
             <div class="below-text-cont">
-
-                <div class="below-text-cont">
-                    <h3 class="below-title text-center">Schedule your repairs in minutes</h3>
-                    <p class="text-center below-text">Have us come to you for ultimate convenience or drop it off at our shop. Same guaranteed quality</p>
+                <div class="container">
+                    <div class="below-text-cont row">
+                        <div class="col-3 line-cont d-none d-md-block" style="padding-left: 10%;"><hr></div>
+                        <div class="col-md-6 col-12">
+                            <h3 class="below-title text-center">Schedule your repairs in minutes</h3>
+                        </div>
+                        <div class="col-3 line-cont d-none d-md-block" style="padding-right: 10%;"><hr></div>
+                        <div class="col-12">
+                            <p class="text-center below-text">Have us come to you for ultimate convenience or drop it off at our shop.
+                                <br> Same guaranteed quality</p>
+                        </div>
+                    </div>
                 </div>
 
             </div>
@@ -42,14 +54,20 @@
     .car{
         height: 230px;
     }
+    .text-cont{
+        width: 100%;
+        /*justify-content: center;*/
+        align-items: center;
+    }
     .main{
         height: 100vh;
+        max-height: 1080px;
+        min-height: 400px;
         width: 100%;
     }
     .hero-bg{
         height: 100%;
         max-width: 1920px;
-        /*margin-top: -80px;*/
         margin: -80px auto 0 auto;
         background-image: url("../../assets/home/home_bg.png");
         background-size: 100% 100%;
@@ -61,7 +79,6 @@
         position: relative;
         display: flex;
         align-items: center;
-        padding: 0 17%;
         top: 50%;
         transform: translateY(-50%);
     }
@@ -77,8 +94,8 @@
         color: #45AFDB;
     }
     .below-text-cont {
-        padding: 0 17%;
         position: relative;
+        width: 100%;
         top: 45%;
     }
     .below-title{
@@ -91,5 +108,32 @@
         font-size: 14px;
         color: #31569C;
         font-family: PoppinsRegular, sans-serif;
+    }
+    /*.line-cont hr{*/
+    /*    width: 100px;*/
+    /*    display: inline-block;*/
+    /*}*/
+    .line-cont{
+        text-align: right;
+    }
+    @media (min-width: 990px) {
+        .text-and-image{
+            /*padding: 0 17%;*/
+        }
+    }
+
+    @media (max-width: 768px) {
+        .text-and-image{
+            padding: 0 25px;
+        }
+        .hero-bg{
+            background: #fff;
+        }
+        .main{
+            max-height: 400px;
+        }
+        .services{
+            font-size: 80% !important;
+        }
     }
 </style>

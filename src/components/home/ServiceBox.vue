@@ -1,5 +1,5 @@
 <template>
-    <div class="col-md-4 col-12">
+    <div class="col-md-4 col-12 cont">
         <div class="box text-center">
             <img :src="require(`@/assets/home/${img}`)" class="img-fluid" :alt="title">
             <h5 class="service-title text-center">{{ title}}</h5>
@@ -16,6 +16,9 @@
 </script>
 
 <style scoped>
+    .cont{
+        margin-bottom: 15px;
+    }
     .box{
         padding: 40px 20px 20px 20px;
         box-shadow: 0px 2px 20px #221F1F33;
@@ -34,4 +37,5 @@
         height: 65px;
         margin-bottom: 50px;
     }
+
 </style>

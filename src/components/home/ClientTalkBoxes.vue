@@ -30,6 +30,7 @@
         background-repeat: no-repeat;
         background-size: cover;
         height: 220px;
+        margin-bottom: 15px;
     }
     .client-box-title, .client-box-text{
         color: white;
@@ -40,5 +41,10 @@
     }
     .client-box-text {
         font-size: 14px;
+    }
+    @media (max-width: 768px) {
+        .client-box{
+            height: 250px;
+        }
     }
 </style>

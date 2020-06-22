@@ -29,10 +29,16 @@
         color: white;
     }
     .client-talk{
-        height: 400px;
+        min-height: 400px;
         width: 100%;
         background: #42A6D4;
         margin-top: 80px;
         padding-top: 80px;
+        padding-bottom: 65px;
+    }
+    @media (max-width: 768px) {
+        .client-talk{
+            min-height: 450px;
+        }
     }
 </style>

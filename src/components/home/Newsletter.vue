@@ -5,11 +5,11 @@
                 <div class="col-12 text-center mb-3">
                     <h3 class="title">Subscribe To Our Newsletter</h3>
                 </div>
-                <div class="col-6 offset-3">
+                <div class="col-12 col-md-6 offset-md-3">
                     <label for="email-news">* Email Address</label>
-                    <div class="d-flex">
+                    <div class="d-md-flex">
                         <input type="email" placeholder="freebies@sales.com" id="email-news" class="form-control">
-                        <SubmitButton class="ml-3" title="Subscribe"/>
+                        <SubmitButton class="ml-3 float-right mt-2 mt-md-0" title="Subscribe"/>
                     </div>
                 </div>
             </div>

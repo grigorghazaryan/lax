@@ -11,7 +11,7 @@
 
 <style scoped>
     .circled-button{
-        padding: 10px 20px;
+        padding: 10px 35px;
         background: #31569C;
         font-family: MontBold, sans-serif;
         color: white;

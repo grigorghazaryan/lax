@@ -29,3 +29,11 @@ export default {
   }
 }
 </script>
+
+<style>
+  @media (max-width: 768px) {
+    *{
+      font-size: 97% !important;
+    }
+  }
+</style>
