@@ -19,5 +19,9 @@
         text-decoration: none;
         border: none;
         font-size: 12px;
+        transition: .3s;
+    }
+    .circled-button:hover {
+        background: #45AFDB;
     }
 </style>

@@ -18,7 +18,9 @@
         </div>
         <div class="to-up" ref="up">
             <router-link to="/repair" class="btn repair">Start Repair</router-link>
-            <button @click="toUp" class="btn rounded-circle">Up</button>
+            <button @click="toUp" class="btn rounded-circle">
+                <img src="@/assets/mixed/arrow.png" alt="Arrow" class="img-fluid">
+            </button>
         </div>
     </footer>
 </template>

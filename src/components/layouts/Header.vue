@@ -31,7 +31,7 @@
                     {name: "Home", link: "/home"},
                     {name: "Repairs", link: "/repair"},
                     {name: "Blog", link: "/blog"},
-                    {name: "Sign In", link: "/sign-in"},
+                    {name: "login", link: "/sign-in"},
                 ]
             }
         },

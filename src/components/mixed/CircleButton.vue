@@ -17,5 +17,9 @@
         color: white;
         border-radius: 25px 25px;
         text-decoration: none;
+        transition: .3s;
+    }
+    .circled-button:hover {
+        background: #45AFDB;
     }
 </style>

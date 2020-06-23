@@ -14,7 +14,7 @@
                         </div>
                     </div>
                     <div class="car-part col-md-6 d-none d-md-block">
-                        <img src="../../assets/home/car.png" class="img-fluid car" alt="Car">
+                        <img src="../../assets/home/car.gif" class="img-fluid car" alt="Car">
                     </div>
                     <div class="col-md-3"></div>
                 </div>
@@ -52,7 +52,7 @@
 
 <style scoped>
     .car{
-        height: 230px;
+        height: 300px;
     }
     .text-cont{
         width: 100%;
@@ -96,7 +96,7 @@
     .below-text-cont {
         position: relative;
         width: 100%;
-        top: 45%;
+        top: 33%;
     }
     .below-title{
         font-family: MontBold, sans-serif;
