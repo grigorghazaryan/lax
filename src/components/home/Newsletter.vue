@@ -7,9 +7,9 @@
                 </div>
                 <div class="col-12 col-md-6 offset-md-3">
                     <label for="email-news">* Email Address</label>
-                    <div class="d-md-flex">
+                    <div class="d-md-flex text-center">
                         <input type="email" placeholder="freebies@sales.com" id="email-news" class="form-control">
-                        <SubmitButton class="ml-3 float-right mt-2 mt-md-0" title="Subscribe"/>
+                        <SubmitButton class="ml-3 float-md-right mt-2 mt-md-0" title="Subscribe"/>
                     </div>
                 </div>
             </div>

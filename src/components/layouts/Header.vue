@@ -5,7 +5,7 @@
                 <img class="img-fluid logo" src="@/assets/mixed/logo.png" alt="LAX Auto Repair Logo">
             </router-link>
 
-            <img src="@/assets/mixed/toggler.png" class="sidebar-toggler" @click="toggleSidebar" alt="Button">
+            <img src="@/assets/mixed/toggler2.png" class="sidebar-toggler" @click="toggleSidebar" alt="Button">
             <div class="menu-cont">
                 <ul class="menu">
                     <li v-for="(menu, i) in menus" class="nav-item" :key="i" ref="link" @mouseleave="handleMouseLeave" @mouseenter="handleHover">
@@ -161,7 +161,7 @@
             width: 100%;
         }
         .bubble-cont img{
-            height: 200px;
+            height: 130px;
         }
 
         .sidebar li a{

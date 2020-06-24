@@ -51,9 +51,7 @@
 </script>
 
 <style scoped>
-    .car{
-        height: 300px;
-    }
+
     .text-cont{
         width: 100%;
         /*justify-content: center;*/
@@ -145,5 +143,10 @@
             font-size: 80% !important;
         }
 
+    }
+    @media (max-width: 480px) {
+        .hero-bg{
+            background-size: 110% 312px;
+        }
     }
 </style>

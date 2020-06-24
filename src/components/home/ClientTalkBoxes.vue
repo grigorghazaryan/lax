@@ -1,5 +1,5 @@
 <template>
-    <div class="col-md-4 col-12">
+    <div class="col-md-4 col-12 mb-3 mb-sm-0">
         <div class="client-box">
             <div class="text-center mb-3">
                 <img src="@/assets/home/quotes.png" class="img-fluid d-inline" alt="Quotes">
@@ -44,9 +44,5 @@
         font-size: 14px;
         margin-bottom: 0;
     }
-    @media (max-width: 768px) {
-        .client-box{
-            height: 250px;
-        }
-    }
+
 </style>

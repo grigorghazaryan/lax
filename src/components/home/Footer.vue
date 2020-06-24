@@ -93,4 +93,18 @@
     .show{
         display: flex;
     }
+    @media (max-width: 768px) {
+        .to-up{
+            width: 100%;
+            right: 0;
+            bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            padding: 15px;
+        }
+
+        .repair {
+            left: 15px;
+        }
+    }
 </style>

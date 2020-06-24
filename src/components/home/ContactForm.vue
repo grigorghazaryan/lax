@@ -21,7 +21,7 @@
             </div>
         </div>
         <div class="col-md-12">
-            <div class="form-group text-md-right">
+            <div class="form-group text-sm-right text-center">
                 <SubmitButton title="Send"/>
             </div>
         </div>
