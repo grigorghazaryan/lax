@@ -23,7 +23,8 @@
         <div class="to-up" ref="up">
             <router-link to="/repair" class="btn repair">Start Repair</router-link>
             <button @click="toUp" class="btn rounded-circle">
-                <img src="@/assets/mixed/arrow.png" alt="Arrow" class="img-fluid">
+                <img src="@/assets/mixed/arrow.png" alt="Arrow" class="img-fluid arrow-blue">
+                <img src="@/assets/mixed/arrow_white.png" alt="Arrow" class="img-fluid arrow-white">
             </button>
         </div>
     </footer>
@@ -65,6 +66,9 @@
         color: white;
         font-family: MontRegular, sans-serif;
     }
+    .arrow-white{
+        display: none;
+    }
     .to-up{
         position: fixed;
         bottom: 20px;
@@ -92,6 +96,16 @@
     }
     .show{
         display: flex;
+    }
+    .to-up a:hover, .to-up button:hover {
+        background: #45afdb;
+        color: white;
+    }
+    .to-up button:hover .arrow-white{
+        display: block;
+    }
+    .to-up button:hover .arrow-blue{
+        display: none;
     }
     @media (max-width: 768px) {
         .to-up{

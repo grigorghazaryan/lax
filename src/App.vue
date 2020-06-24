@@ -8,7 +8,7 @@
 
 <script>
   import Header from "@/components/layouts/Header";
-  import Footer from "./components/home/Footer";
+  import Footer from "./components/layouts/Footer";
 
   export default {
     components: {
