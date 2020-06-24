@@ -104,6 +104,16 @@
     .overlay{
         display: none;
     }
+    .sidebar{
+        width: 80%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        background: white;
+        z-index: 10;
+        left: -100%;
+        transition: .3s;
+    }
     @media (min-width: 992px) {
         .navbar{
             margin: 15px auto 0 auto;
@@ -143,16 +153,6 @@
             position: relative;
             top: 400px;
             transform: translateY(-100%);
-        }
-        .sidebar{
-            width: 80%;
-            height: 100%;
-            position: fixed;
-            top: 0;
-            background: white;
-            z-index: 10;
-            left: -100%;
-            transition: .3s;
         }
         .bubble-cont{
             position: absolute;
