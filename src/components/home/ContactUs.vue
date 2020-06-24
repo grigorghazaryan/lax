@@ -5,7 +5,8 @@
                 <div class="col-12">
                     <div class="col-12 mb-5">
                         <h3 class="title text-center">Contact Us</h3>
-                        <p class="title-text text-center">From tires to brakes, engines to interiors, we’ve got you covered. Get in touch today</p>
+                        <p class="title-text text-center">From tires to brakes, engines to interiors, we’ve got you covered.
+                            <br> Get in touch today.</p>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -80,7 +81,8 @@
 
 <style scoped>
     .contact-section{
-        margin-top: 80px;
+        padding: 80px 0 10px 0;
+        background: #FCF9F9;
     }
     .loc-name{
         color: #4A4A4A;

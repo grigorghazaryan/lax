@@ -13,7 +13,7 @@
                             <Button title="Start Repair" url="/repair"/>
                         </div>
                     </div>
-                    <div class="car-part col-md-6 d-none d-md-block">
+                    <div class="car-part col-md-6">
                         <img src="../../assets/home/car.gif" class="img-fluid car" alt="Car">
                     </div>
                     <div class="col-md-3"></div>
@@ -21,7 +21,7 @@
             </div>
             <div class="below-text-cont">
                 <div class="container">
-                    <div class="below-text-cont row">
+                    <div class="row">
                         <div class="col-3 line-cont d-none d-md-block" style="padding-left: 10%;"><hr></div>
                         <div class="col-md-6 col-12">
                             <h3 class="below-title text-center">Schedule your repairs in minutes</h3>
@@ -94,9 +94,9 @@
         color: #45AFDB;
     }
     .below-text-cont {
-        position: relative;
+        position: absolute;
         width: 100%;
-        top: 33%;
+        bottom: 50px;
     }
     .below-title{
         font-family: MontBold, sans-serif;
@@ -109,31 +109,41 @@
         color: #31569C;
         font-family: PoppinsRegular, sans-serif;
     }
-    /*.line-cont hr{*/
-    /*    width: 100px;*/
-    /*    display: inline-block;*/
-    /*}*/
     .line-cont{
         text-align: right;
-    }
-    @media (min-width: 990px) {
-        .text-and-image{
-            /*padding: 0 17%;*/
-        }
     }
 
     @media (max-width: 768px) {
         .text-and-image{
             padding: 0 25px;
         }
-        .hero-bg{
-            background: #fff;
-        }
         .main{
-            max-height: 400px;
+            max-height: 800px;
+        }
+        .hero-bg{
+            background-image: url("../../assets/home/hero_bg_mob.png");
+            background-size: contain;
+            background-repeat: no-repeat;
+            height: 100%;
+        }
+        .text-cont{
+            flex-direction: column-reverse;
+        }
+        .text-and-image{
+            top: 50%;
+            transform: translateY(-50%);
+            justify-content: center;
+        }
+        .car{
+            height: 200px;
+        }
+
+        .text-cont p{
+            font-size: 22px!important;
         }
         .services{
             font-size: 80% !important;
         }
+
     }
 </style>

@@ -6,8 +6,12 @@
                     <div class="socials mb-4">
                         <p class="text-center follow">Follow Us</p>
                         <div class="icons d-flex justify-content-center">
-                            <img src="@/assets/mixed/facebook.svg" alt="Facebook Icon">
-                            <img src="@/assets/mixed/insta.png" class="ml-2" alt="Instagram Icon">
+                            <a href="https://m.facebook.com/Laxautorepair/" target="_blank">
+                                <img src="@/assets/mixed/facebook.svg" alt="Facebook Icon">
+                            </a>
+                            <a href="https://instagram.com/laxautorepair_?igshid=1eqm4yynjz166" target="_blank">
+                                <img src="@/assets/mixed/insta.png" class="ml-2" alt="Instagram Icon">
+                            </a>
                         </div>
                     </div>
                     <div class="copyright">

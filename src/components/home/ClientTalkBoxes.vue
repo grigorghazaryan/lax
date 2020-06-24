@@ -29,8 +29,9 @@
         background: url("../../assets/home/client-box-bg.png");
         background-repeat: no-repeat;
         background-size: cover;
-        height: 220px;
+        height: 100%;
         margin-bottom: 15px;
+        border: 1px solid #FFFFFF;
     }
     .client-box-title, .client-box-text{
         color: white;
@@ -41,6 +42,7 @@
     }
     .client-box-text {
         font-size: 14px;
+        margin-bottom: 0;
     }
     @media (max-width: 768px) {
         .client-box{

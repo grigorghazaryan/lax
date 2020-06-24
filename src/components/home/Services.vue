@@ -1,5 +1,5 @@
 <template>
-    <div class="services mt-5 pt-4">
+    <div class="services">
         <div class="container">
             <div class="row">
                 <div class="col-12 mb-3">
@@ -35,5 +35,11 @@
     }
     .subtitle {
         font-family: PoppinsRegular, sans-serif;
+    }
+    .services{
+        background: #FCF9F9;
+        padding-top: 80px;
+        padding-bottom: 80px;
+        box-shadow: 4px 0px 8px #4A4A4A80;
     }
 </style>

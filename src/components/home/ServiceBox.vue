@@ -22,7 +22,7 @@
     .box{
         padding: 40px 20px 20px 20px;
         box-shadow: 0px 2px 20px #221F1F33;
-        height: 320px;
+        height: 340px;
     }
     .service-title, .service-text {
         color: #4A4A4A;

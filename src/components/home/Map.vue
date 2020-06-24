@@ -19,7 +19,5 @@
         height: 290px;
         width: 100%;
     }
-    .map{
-        margin-top: 80px;
-    }
+
 </style>
