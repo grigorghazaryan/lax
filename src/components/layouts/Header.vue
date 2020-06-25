@@ -1,6 +1,6 @@
 <template>
     <div id="header">
-        <b-navbar toggleable="lg" type="dark">
+        <nav class="navbar navbar-dark navbar-expand-lg">
             <router-link to="/">
                 <img class="img-fluid logo" src="@/assets/mixed/logo.png" alt="LAX Auto Repair Logo">
             </router-link>
@@ -13,7 +13,7 @@
                     </li>
                 </ul>
             </div>
-        </b-navbar>
+        </nav>
         <div class="overlay" ref="overlay" @click="toggleSidebar"></div>
         <div class="sidebar" ref="sidebar">
             <div class="logo-cont">

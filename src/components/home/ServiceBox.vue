@@ -24,6 +24,9 @@
         box-shadow: 0px 2px 20px #221F1F33;
         height: 340px;
     }
+    .box:hover img{
+        transform: rotate(360deg);
+    }
     .service-title, .service-text {
         color: #4A4A4A;
     }
@@ -36,6 +39,7 @@
     img{
         height: 65px;
         margin-bottom: 50px;
+        transition: .5s;
     }
 
 </style>

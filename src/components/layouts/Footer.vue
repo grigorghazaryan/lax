@@ -33,12 +33,12 @@
 <script>
     export default {
         name: "Footer",
-        created() {
+        mounted() {
             window.addEventListener("scroll", this.handleScroll);
         },
         methods: {
             handleScroll() {
-                if(window.pageYOffset > 200) {
+                if(window.pageYOffset > 400) {
                     this.$refs.up.classList.add("show");
                 } else {
                     this.$refs.up.classList.remove("show");
@@ -108,7 +108,7 @@
         display: none;
     }
     @media (max-width: 768px) {
-        .to-up{
+        .to-up.show{
             width: 100%;
             right: 0;
             bottom: 15px;
