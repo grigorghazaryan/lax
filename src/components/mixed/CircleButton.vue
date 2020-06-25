@@ -1,11 +1,11 @@
 <template>
-    <router-link :to="url" class="circled-button">{{ title }}</router-link>
+    <router-link :to="url" class="circled-button"> {{ title }} <img v-if="img" :src="require('@/assets/mixed/' + img)" alt="Arrow"></router-link>
 </template>
 
 <script>
     export default {
         name: "CircleButton",
-        props: ['title', 'url']
+        props: ['title', 'url', 'img']
     }
 </script>
 

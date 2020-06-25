@@ -4,7 +4,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 position-relative">
-                    <span class="back" @click="$router.go(-1)"><img src="@/assets/mixed/back.png" class="img-fluid" alt="Back Arrow">Back</span>
+                    <Back/>
                     <h2 class="title text-center">What Do You Drive</h2>
                     <p class="title-text text-center">Alternatively, <span>Enter the License Plate</span></p>
                 </div>
@@ -69,16 +69,25 @@
 
 <script>
     import SubmitButton from "../mixed/SubmitButton";
+    import Back from "../mixed/Back";
+
     export default {
         name: "RepairForm",
-        components: {SubmitButton},
+        components: {Back, SubmitButton},
         data: () => ({
             year: "",
             make: "",
             model: "",
             engine: "",
             mileage: undefined,
-            disabled: true
+            disabled: true,
+            select: null,
+            items: [
+                'Item 1',
+                'Item 2',
+                'Item 3',
+                'Item 4',
+            ],
         }),
         methods: {
             toggleDropdown(ref) {
@@ -105,66 +114,18 @@
     }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+    @import "src/assets/css/style.scss";
+
     .repair-form{
         padding-top: 80px;
-    }
-    .disabled{
-        background: #A2A2A2!important;
-        cursor: not-allowed;
-    }
-    .dropdown-header>img{
-        transition: .3s;
-    }
-    .show>img{
-        transform: rotate(180deg);
     }
     .title{
         font-size: 32px;
         color: #4A4A4A;
         font-family: MontSemiBold, sans-serif;
     }
-    .selected{
-        background: #45afdb!important;
-        color: white!important;
-    }
-    .touch{
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 1;
-        display: none;
-    }
-    .block{
-        display: block;
-    }
-    .dropdown-header, .form-control{
-        border: none;
-        border-bottom: 3px solid #d8e4fb;
-        color: #31569C!important;
-        font-family: PoppinsLight, sans-serif;
-        padding: 10px 0 10px 15px;
-        cursor: pointer;
-        position: relative;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-left: 50%;
-        transform: translateX(-50%);
-        border-radius: 0;
-        font-size: 0.875rem;
-    }
-    .form-control::placeholder{
-        color: #31569C!important;
-    }
-    .form-control:active, .form-control:focus{
-        box-shadow: none;
-    }
-    .dropdown-header img{
-        height: 9px;
-    }
+
     .title-text{
         color: #4A4A4A;
         font-family: PoppinsRegular, sans-serif;
@@ -172,70 +133,14 @@
     .title-text span{
         color: #31569C;
     }
-    .show{
-        border-bottom: 3px solid #31569b;
-    }
-    .show .dropdown-body{
-        height: 340px!important;
-        max-height: 340px!important;
-        overflow-y: auto!important;
-    }
-    .dropdown-body{
-        position: absolute;
-        width: 100%;
-        top: 44px;
-        left: 0;
-        height: 0;
-        overflow: hidden;
-        transition: .3s;
-        z-index: 10000;
-    }
-    .dropdown-body p{
-        padding: 12px;
-        border-bottom: 1px solid #A2A2A2;
-        color: #A2A2A2;
-        background: #E9F0FE;
-        width: 100%;
-    }
-    .dropdown-body p:hover{
-        background: #45afdb;
-        color: white;
-    }
-    .back{
-        position: absolute;
-        color: #4A4A4A;
-        font-family: PoppinsRegular, sans-serif;
-        cursor: pointer;
-    }
     .sub{
         font-size: 16px;
         padding: 10px 15px;
     }
     @media (min-width: 1200px) {
-        .dropdown-header, .form-control{
-            width: 800px;
-        }
         .sub{
             transform: translateX(-100%);
         }
-        .form-group{
-            text-align: center;
-            margin-bottom: 40px;
-        }
     }
-    @media (max-width: 768px) {
-        .dropdown-header{
-            width: 100%;
-        }
-        .dropdown-body{
-            top: 40px;
-        }
-    }
-    @media (max-width: 480px) {
-        .show .dropdown-body{
-            height: 200px!important;
-            max-height: 340px!important;
-            overflow-y: auto!important;
-        }
-    }
+
 </style>

@@ -84,6 +84,9 @@
         padding: 80px 0 10px 0;
         background: #FCF9F9;
     }
+    .title, .title-text {
+        color: #4A4A4A;
+    }
     .loc-name{
         color: #4A4A4A;
         font-size: 14px;

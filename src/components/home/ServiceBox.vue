@@ -1,6 +1,6 @@
 <template>
     <div class="col-md-4 col-12 cont">
-        <div class="box text-center">
+        <div class="box text-center" :style="{'height': height}">
             <img :src="require(`@/assets/home/${img}`)" class="img-fluid" :alt="title">
             <h5 class="service-title text-center">{{ title}}</h5>
             <p class="text-center service-text">{{ text }}</p>
@@ -11,7 +11,7 @@
 <script>
     export default {
         name: "ServiceBox",
-        props: ["img", "title", "text"]
+        props: ["img", "title", "text", "height"]
     }
 </script>
 
