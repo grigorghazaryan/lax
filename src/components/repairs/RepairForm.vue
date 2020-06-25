@@ -3,7 +3,8 @@
         <div class="touch" @click="closeDropdown" ref="touch"></div>
         <div class="container">
             <div class="row">
-                <div class="col-12">
+                <div class="col-12 position-relative">
+                    <span class="back" @click="$router.go(-1)"><img src="@/assets/mixed/back.png" class="img-fluid" alt="Back Arrow">Back</span>
                     <h2 class="title text-center">What Do You Drive</h2>
                     <p class="title-text text-center">Alternatively, <span>Enter the License Plate</span></p>
                 </div>
@@ -27,8 +28,8 @@
                         <div class="dropdown-header" ref="make" @click="toggleDropdown('make')" style="z-index: 9">
                             <p class="text-left mb-0">{{ make || "Make" }}</p>
                             <img src="@/assets/mixed/arr.svg" class="float-right img-fluid" alt="Arrow">
-                            <div class="dropdown-body" >
-                                <p v-for="i in 10" :key="i" class="mb-0 text-left drop-element" @click="choose('make', 'Make '+ i +' ')">{{ "Make" + i }}</p>
+                            <div class="dropdown-body">
+                                <p :class="{ 'selected': (make == 'Make'+ i +' ') }" v-for="i in 10" :key="i" class="mb-0 text-left drop-element" @click="choose('make', 'Make'+ i +' ')">{{ "Make" + i }}</p>
                             </div>
                         </div>
                     </div>
@@ -58,7 +59,7 @@
                     </div>
 
                     <div class="form-group text-right">
-                        <SubmitButton class="sub" title="Select Repairs"/>
+                        <SubmitButton class="sub" :class="{disabled}" title="Select Repairs"/>
                     </div>
                 </div>
             </div>
@@ -77,6 +78,7 @@
             model: "",
             engine: "",
             mileage: undefined,
+            disabled: true
         }),
         methods: {
             toggleDropdown(ref) {
@@ -107,10 +109,24 @@
     .repair-form{
         padding-top: 80px;
     }
+    .disabled{
+        background: #A2A2A2!important;
+        cursor: not-allowed;
+    }
+    .dropdown-header>img{
+        transition: .3s;
+    }
+    .show>img{
+        transform: rotate(180deg);
+    }
     .title{
         font-size: 32px;
         color: #4A4A4A;
         font-family: MontSemiBold, sans-serif;
+    }
+    .selected{
+        background: #45afdb!important;
+        color: white!important;
     }
     .touch{
         position: fixed;
@@ -184,6 +200,16 @@
     .dropdown-body p:hover{
         background: #45afdb;
         color: white;
+    }
+    .back{
+        position: absolute;
+        color: #4A4A4A;
+        font-family: PoppinsRegular, sans-serif;
+        cursor: pointer;
+    }
+    .sub{
+        font-size: 16px;
+        padding: 10px 15px;
     }
     @media (min-width: 1200px) {
         .dropdown-header, .form-control{

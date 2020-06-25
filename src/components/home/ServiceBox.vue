@@ -15,7 +15,7 @@
     }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
     .cont{
         margin-bottom: 15px;
     }

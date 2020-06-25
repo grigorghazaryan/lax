@@ -50,11 +50,10 @@
     }
 </script>
 
-<style scoped>
-
+<style scoped lang="scss">
+    @import "../../assets/css/style";
     .text-cont{
         width: 100%;
-        /*justify-content: center;*/
         align-items: center;
     }
     .main{
@@ -89,7 +88,7 @@
         font-family: MontBold, sans-serif;
     }
     .second{
-        color: #45AFDB;
+        color: $blue;
     }
     .below-text-cont {
         position: absolute;

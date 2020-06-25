@@ -18,7 +18,7 @@
   }
 </script>
 
-<style>
+<style lang="scss">
   @font-face {
     font-family: MontBold;
     src: url("./assets/fonts/Montserrat/Montserrat-Bold.otf");
