@@ -3,7 +3,20 @@ $blue: #31569C;
 $pt: 20px;
 $lblue: #45afdb;
 $red: #C90058;
-
+.form-md{
+  -webkit-text-fill-color: $black!important;
+  min-height: 40px;
+}
+.md-cont label{
+  color: $blue;
+  margin-left: 10px;
+  font-family: PoppinsLight, sans-serif;
+  font-size: 0.875rem;
+}
+.md-cont:after{
+  background: #d8e4fb!important;
+  height: 3px;
+}
 .disabled{
   background: #A2A2A2!important;
   cursor: not-allowed;

@@ -43,6 +43,10 @@
     font-family: PoppinsLight;
     src: url("./assets/fonts/Poppins/Poppins-Light.otf");
   }
+  @font-face {
+    font-family: PoppinsSemiBold;
+    src: url("./assets/fonts/Poppins/Poppins-SemiBold.otf");
+  }
   .title{
     font-size: 25px;
     font-family: MontBold, sans-serif;

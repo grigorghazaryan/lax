@@ -39,7 +39,7 @@
         <div class="container mt-5 mb-5">
             <div class="row">
                 <div class="col-12 text-md-right">
-                    <CircleButton title="Get a Quote" url="/form"/>
+                    <CircleButton title="Get a Quote" url="request-form"/>
                 </div>
             </div>
         </div>
@@ -47,10 +47,10 @@
 </template>
 
 <script>
-    import Back from "../components/mixed/Back";
-    import ServiceBox from "../components/home/ServiceBox";
-    import DeleteModal from "../components/mixed/DeleteModal";
-    import CircleButton from "../components/mixed/CircleButton";
+    import Back from "../mixed/Back";
+    import ServiceBox from "../home/ServiceBox";
+    import DeleteModal from "../mixed/DeleteModal";
+    import CircleButton from "../mixed/CircleButton";
 
     export default {
         name: "ServiceSummary",
@@ -68,7 +68,7 @@
 </script>
 
 <style scoped lang="scss">
-    @import "src/assets/css/style";
+    @import "../../assets/css/style";
 
     .title-text{
         color: $black;
