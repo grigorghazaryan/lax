@@ -1,11 +1,11 @@
 <template>
-    <button :style="{'background': color || bg}" class="circled-button">{{ title }}</button>
+    <button :class="className" :style="{'background': colors|| bg}" class="circled-button">{{ title }}</button>
 </template>
 
 <script>
     export default {
         name: "SubmitButton",
-        props: ['title', 'url', 'color'],
+        props: ['title', 'color', 'colors', 'className'],
         data: () => ({
             bg: "#31569C"
         })
@@ -26,5 +26,11 @@
     }
     .circled-button:hover {
         background: #45AFDB!important;
+    }
+    .del.circled-button:hover{
+        background: #eb2c7f!important;
+    }
+    .del{
+        font-size: 16px;
     }
 </style>

@@ -22,4 +22,7 @@
     .circled-button:hover {
         background: #45AFDB;
     }
+    img{
+        height: 18px;
+    }
 </style>

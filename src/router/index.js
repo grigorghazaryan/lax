@@ -14,18 +14,32 @@ Vue.use(VueRouter)
     path: '/repair',
     name: 'Repairs',
     // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
+    // this generates a separate chunk (repair.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/Repair')
+    component: () => import(/* webpackChunkName: "repair" */ '../views/Repair')
   },
     {
       path: '/get-quote',
-      name: 'Get a Quote',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ '../views/GetQuote')
-    }
+      component: () => import(/* webpackChunkName: "quote" */ '../views/GetQuote'),
+      children :[
+        {
+          path: '',
+          name: 'Get a Quote',
+          // route level code-splitting
+          // this generates a separate chunk (quote.[hash].js) for this route
+          // which is lazy-loaded when the route is visited.
+          component: () => import(/* webpackChunkName: "quote" */ '../components/quotes/ChooseServices'),
+        },
+        {
+          path: 'service-summary',
+          name: 'Service Summary',
+          // route level code-splitting
+          // this generates a separate chunk (summary.[hash].js) for this route
+          // which is lazy-loaded when the route is visited.
+          component: () => import(/* webpackChunkName: "summary" */ '../views/ServiceSummary')
+        }
+      ]
+    },
 ]
 
 const router = new VueRouter({

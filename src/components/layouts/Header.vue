@@ -2,7 +2,7 @@
     <div id="main-header">
         <MainHeader v-if="(header === 1)"/>
         <RepairHeader v-if="(header === 2)"/>
-        <QuoteHeader :name="$router.currentRoute.name" v-if="(header === 3)"/>
+        <QuoteHeader :name="routeName" v-if="(header === 3)"/>
     </div>
 </template>
 
@@ -16,15 +16,17 @@
         components: {QuoteHeader, RepairHeader, MainHeader},
         data: () => ({
             header: 1,
+            routeName: "",
         }),
         watch:{
             $route (){
                 let route = this.$router.currentRoute.path;
+                this.routeName = this.$router.currentRoute.name;
                 if(route == "/") {
                     this.header = 1;
                 } else if(route == '/repair') {
                     this.header = 2;
-                } else if(route == '/get-quote') {
+                } else  {
                     this.header = 3;
                 }
             }
