@@ -55,5 +55,10 @@
     font-size: 14px;
     font-family: PoppinsRegular, sans-serif;
   }
-
+  #app {
+    background: white;
+  }
+  html {
+    background: white!important;
+  }
 </style>

@@ -56,7 +56,7 @@
         display: inline-block;
     }
     .box{
-        padding: 40px 20px 20px 20px;
+        padding: 40px 17px 17px 20px;
         box-shadow: 0px 2px 20px #221F1F33;
         height: 340px;
         overflow: hidden;

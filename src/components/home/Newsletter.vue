@@ -25,19 +25,20 @@
     }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+
     .newsletter{
         height: 200px;
         background: #DEDEDE;
     }
     .title{
-        color: #252525;
+        color: #4A4A4A;
         font-size: 18px;
     }
     label{
         font-family: PoppinsRegular, sans-serif;
         font-size: 12px;
-        color: #252525;
+        color: #4A4A4A;
     }
     input{
         background: white;

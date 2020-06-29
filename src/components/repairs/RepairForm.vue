@@ -22,10 +22,10 @@
 
                     <div class="form-group">
                         <div class="dropdown-header" ref="make" @click="toggleDropdown('make')" style="z-index: 9">
-                            <p class="text-left mb-0">{{ make || "Make" }}</p>
+                            <p class="text-left mb-0">{{ make.name || "Make" }}</p>
                             <img src="@/assets/mixed/arr.svg" class="float-right img-fluid" alt="Arrow">
                             <div class="dropdown-body">
-                                <p :class="{ 'selected': (make == 'Make'+ i +' ') }" v-for="i in 10" :key="i" class="mb-0 text-left drop-element" @click="choose('make', 'Make'+ i +' ')">{{ "Make" + i }}</p>
+                                <p :class="{ 'selected': (make.id == m.Make_ID) }" v-for="m in makes" :key="m.Make_ID" class="mb-0 text-left drop-element" @click="choose('make', m.Make_ID, m.Make_Name)">{{ m.Make_Name }}</p>
                             </div>
                         </div>
                     </div>
@@ -66,6 +66,7 @@
 <script>
     import SubmitButton from "../mixed/SubmitButton";
     import Back from "../mixed/Back";
+    import axios from "axios";
 
     export default {
         name: "RepairForm",
@@ -73,7 +74,11 @@
         data: () => ({
             year: "",
             years: [],
-            make: "",
+            make: {
+                id: "",
+                name: ""
+            },
+            makes: [],
             model: "",
             engine: "",
             mileage: undefined,
@@ -97,8 +102,13 @@
                     this.$refs.touch.classList.remove("block");
                 }
             },
-            choose(ref, value){
-                this[ref] = value;
+            choose(ref, value, valueName = null){
+                if(typeof this[ref] == "object") {
+                    this[ref].id = value;
+                    this[ref].name = valueName;
+                } else {
+                    this[ref] = value;
+                }
             },
             closeDropdown() {
                 let elems = document.getElementsByClassName("show");
@@ -106,10 +116,15 @@
                     element.className = element.className.replace(/\bshow\b/g, "");
                 });
                 this.$refs.touch.classList.remove("block");
+            },
+            async getMakes() {
+                let makes = await axios.get(process.env.VUE_APP_API_URL + "get-makes");
+                this.makes = makes.data.data || [];
             }
         },
         created() {
             for (let i = new Date().getFullYear(); i >= 1950; i-- ) this.years.push(i);
+            this.getMakes();
         }
     }
 </script>
