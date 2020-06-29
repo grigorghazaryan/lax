@@ -15,11 +15,11 @@
 <style scoped>
     .circled-button{
         padding: 10px 35px;
-        background: #31569C;
+        background: #31569C!important;
         font-family: MontBold, sans-serif;
-        color: white;
+        color: white!important;
         border-radius: 20px 20px;
-        text-decoration: none;
+        text-decoration: none!important;
         border: none;
         font-size: 12px;
         transition: .3s;

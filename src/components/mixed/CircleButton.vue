@@ -12,15 +12,15 @@
 <style scoped>
     .circled-button{
         padding: 13px 25px;
-        background: #31569C;
+        background: #31569C!important;
         font-family: MontBold, sans-serif;
-        color: white;
+        color: white!important;
         border-radius: 25px 25px;
-        text-decoration: none;
+        text-decoration: none!important;
         transition: .3s;
     }
     .circled-button:hover {
-        background: #45AFDB;
+        background: #45AFDB!important;
     }
     img{
         height: 18px;

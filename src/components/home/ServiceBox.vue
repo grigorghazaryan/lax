@@ -1,7 +1,8 @@
 <template>
     <div class="col-md-4 col-12 cont">
-        <div class="box text-center" :class="className" :style="{'height': height}">
-            <img v-if="img" :src="require(`@/assets/home/${img}`)" class="img-fluid" :alt="title">
+        <div class="box text-center" @mouseenter="handleHover" @mouseleave="handleLeave" :class="className" :style="{'height': height}">
+            <img v-if="img" :src="require(`@/assets/home/${img}`)" ref="primary" class="img-fluid primary-image" :alt="title">
+            <img v-if="gif" :src="require(`@/assets/home/${gif}`)" ref="gif" class="img-fluid gif" :alt="title">
             <h5 class="service-title text-center">{{ title}}</h5>
             <p v-if="text" class="text-center service-text">{{ text }}</p>
             <div class="blue-over-overlay align-items-center justify-content-center">
@@ -21,7 +22,21 @@
 <script>
     export default {
         name: "ServiceBox",
-        props: ["img", "title", "text", "height", "className"]
+        props: ["img", "title", "text", "height", "className", "gif"],
+        methods: {
+            handleHover() {
+                if(this.$props.gif) {
+                    this.$refs.primary.classList.add("none");
+                    this.$refs.gif.classList.add("inline-block");
+                }
+            },
+            handleLeave() {
+                if(this.$props.gif) {
+                    this.$refs.primary.classList.remove("none");
+                    this.$refs.gif.classList.remove("inline-block");
+                }
+            }
+        }
     }
 </script>
 
@@ -30,6 +45,15 @@
 
     .cont{
         margin-bottom: 15px;
+    }
+    .gif{
+        display: none;
+    }
+    .none{
+        display: none;
+    }
+    .inline-block{
+        display: inline-block;
     }
     .box{
         padding: 40px 20px 20px 20px;
@@ -50,8 +74,8 @@
     .service-text {
         font-family: PoppinsRegular, sans-serif;
     }
-    img{
-        height: 65px;
+    .box > img{
+        height: 74px;
         margin-bottom: 50px;
         transition: .5s;
     }

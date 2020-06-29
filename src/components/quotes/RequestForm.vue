@@ -54,6 +54,7 @@
 <!--                                <span class="md-error" v-else-if="!$v.form.firstName.minlength">Invalid first name</span>-->
                             </md-field>
                         </div>
+
                         <div class="col-md-8 offset-md-2 mt-2">
                             <div class="dropdown-header" ref="found" style="z-index: 7" @click="toggleDropdown('found')">
                                 <input type="text" class="form-control search" placeholder="How did you hear about us?" v-model="found">
@@ -133,16 +134,15 @@
                 let elems = document.getElementsByClassName("show");
                 [].forEach.call(elems, function (element) {
                     element.className = element.className.replace(/\bshow\b/g, "");
-                })
-            }
+                });
+                this.$refs.touch.classList.remove("block");
+            },
         }
     }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
     @import "src/assets/css/style";
-    @import "~vue-material/dist/vue-material.min.css";
-    @import "~vue-material/dist/theme/default.css";
     .form-section {
         padding: 40px 0;
     }

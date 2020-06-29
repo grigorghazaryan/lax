@@ -71,7 +71,8 @@
                 let elems = document.getElementsByClassName("show");
                 [].forEach.call(elems, function (element) {
                     element.className = element.className.replace(/\bshow\b/g, "");
-                })
+                });
+                this.$refs.touch.classList.remove("block");
             }
         }
     }

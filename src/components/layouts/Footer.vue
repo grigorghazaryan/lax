@@ -89,8 +89,9 @@
         padding: 7px 15px;
         border-radius: 25px;
         font-size: 12px;
-        color: #31569C;
+        color: #31569C!important;
         display: flex;
+        text-decoration: none!important;
         align-items: center;
         font-family: MontBold, sans-serif;
     }
@@ -98,8 +99,8 @@
         display: flex;
     }
     .to-up a:hover, .to-up button:hover {
-        background: #45afdb;
-        color: white;
+        background: #45afdb!important;
+        color: white!important;
     }
     .to-up button:hover .arrow-white{
         display: block;

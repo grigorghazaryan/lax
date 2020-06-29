@@ -14,12 +14,8 @@
                         <div class="dropdown-header" ref="year" @click="toggleDropdown('year')" style="z-index: 10">
                             <p class="text-left mb-0">{{ year || "Year" }}</p>
                             <img src="@/assets/mixed/arr.svg" class="float-right img-fluid" alt="Arrow">
-                            <div class="dropdown-body" >
-                                <p class="mb-0 text-left drop-element" @click="choose('year', 2020)">2020</p>
-                                <p class="mb-0 text-left drop-element" @click="choose('year', 2019)">2019</p>
-                                <p class="mb-0 text-left drop-element" @click="choose('year', 2018)">2018</p>
-                                <p class="mb-0 text-left drop-element" @click="choose('year', 2017)">2017</p>
-                                <p class="mb-0 text-left drop-element" @click="choose('year', 2016)">2016</p>
+                            <div class="dropdown-body">
+                                <p class="mb-0 text-left drop-element" :class="{'selected': year == y}" v-for="y in years" :key="y" @click="choose('year', y)">{{ y }}</p>
                             </div>
                         </div>
                     </div>
@@ -76,6 +72,7 @@
         components: {Back, SubmitButton},
         data: () => ({
             year: "",
+            years: [],
             make: "",
             model: "",
             engine: "",
@@ -107,10 +104,13 @@
                 let elems = document.getElementsByClassName("show");
                 [].forEach.call(elems, function (element) {
                     element.className = element.className.replace(/\bshow\b/g, "");
-                })
+                });
+                this.$refs.touch.classList.remove("block");
             }
-
         },
+        created() {
+            for (let i = new Date().getFullYear(); i >= 1950; i-- ) this.years.push(i);
+        }
     }
 </script>
 

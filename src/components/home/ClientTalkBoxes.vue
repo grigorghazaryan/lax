@@ -5,7 +5,7 @@
             <div class="text-part">
 
                 <div class="text-center mb-3">
-                    <img src="@/assets/home/quotes.png" class="img-fluid d-inline" alt="Quotes">
+                    <img src="@/assets/home/quotes.png" class="img-fluid d-inline" style="height: 25px" alt="Quotes">
                 </div>
                 <h4 class="client-box-title text-center">{{ title }}</h4>
                 <p class="client-box-text">{{ text }}</p>
@@ -32,7 +32,6 @@
     .bg{
         position: absolute;
         height: 100%;
-        /*width: 100%;*/
         top: 0;
         left: 0;
         z-index: 1;
@@ -40,10 +39,11 @@
     }
     img{
         height: 25px;
+        max-width: unset;
     }
+
     .client-box{
         padding: 20px;
-        /*background: url("");*/
         background-repeat: no-repeat;
         background-size: cover;
         height: 100%;
