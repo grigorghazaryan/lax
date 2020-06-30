@@ -16,7 +16,7 @@
 
 <style scoped>
     iframe{
-        height: 290px;
+        height: 290px!important;
         width: 100%;
     }
 

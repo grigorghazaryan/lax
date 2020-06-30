@@ -14,8 +14,18 @@
             <form novalidate>
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-4 offset-md-2">
-                            <md-field class="md-cont">
+                        <div class="col-md-4 offset-md-2 position-relative">
+                            <md-field class="md-cont position-relative">
+                                <div class="validation-box">
+                                    <p class="validation-header">First Name must have:</p>
+                                    <div class="validation-texts">
+                                        <ul class="pl-0">
+                                            <li>100 characters</li>
+                                            <li>Upper and lower letters</li>
+                                            <li>100 characters</li>
+                                        </ul>
+                                    </div>
+                                </div>
                                 <label for="first-name">* First Name</label>
                                 <md-input name="first-name" class="form-md" id="first-name" autocomplete="given-name" :disabled="sending" />
 <!--                                <span class="md-error" v-if="!$v.form.firstName.required">The first name is required</span>-->
@@ -23,7 +33,8 @@
                             </md-field>
                         </div>
                         <div class="col-md-4">
-                            <md-field class="md-cont">
+                            <md-field class="md-cont position-relative">
+                                <div class="validation-box"></div>
                                 <label for="last-name">* Last Name</label>
                                 <md-input name="last-name" class="form-md" id="last-name" autocomplete="given-name" :disabled="sending" />
 <!--                                <span class="md-error" v-if="!$v.form.firstName.required">The first name is required</span>-->
@@ -31,24 +42,27 @@
                             </md-field>
                         </div>
                         <div class="col-md-8 offset-md-2">
-                            <md-field class="md-cont">
+                            <md-field class="md-cont position-relative">
+                                <div class="validation-box"></div>
                                 <label for="email">*Email Address</label>
                                 <md-input type="email" name="email" class="form-md" id="email" autocomplete="given-name" :disabled="sending" />
 <!--                                <span class="md-error" v-if="!$v.form.firstName.required">The first name is required</span>-->
 <!--                                <span class="md-error" v-else-if="!$v.form.firstName.minlength">Invalid first name</span>-->
                             </md-field>
                         </div>
-                        <div class="col-md-4 offset-md-2 ">
-                            <md-field class="md-cont">
+                        <div class="col-md-4 offset-md-2">
+                            <md-field class="md-cont position-relative">
+                                <div class="validation-box"></div>
                                 <label for="password">* Password</label>
                                 <md-input type="password" name="password" class="form-md" id="password" autocomplete="off" :disabled="sending" />
 <!--                                <span class="md-error" v-if="!$v.form.firstName.required">The first name is required</span>-->
 <!--                                <span class="md-error" v-else-if="!$v.form.firstName.minlength">Invalid first name</span>-->
                             </md-field>
                         </div>
-                        <div class="col-md-4 ">
-                            <md-field class="md-cont">
-                                <label for="phone">* Password</label>
+                        <div class="col-md-4">
+                            <md-field class="md-cont position-relative">
+                                <div class="validation-box"></div>
+                                <label for="phone">* Phone Number</label>
                                 <md-input name="phone" class="form-md" id="phone" autocomplete="given-name" :disabled="sending" />
 <!--                                <span class="md-error" v-if="!$v.form.firstName.required">The first name is required</span>-->
 <!--                                <span class="md-error" v-else-if="!$v.form.firstName.minlength">Invalid first name</span>-->
@@ -65,14 +79,14 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-8 offset-md-2  mt-5">
+                        <div class="col-md-8 offset-md-2 mt-5">
                             <div class="cont d-flex flex-column flex-md-row justify-content-between align-items-center">
                                 <div class="left-part d-flex align-items-center">
                                     <div class="img-cont mr-2">
                                         <img src="@/assets/mixed/information.png" alt="Info">
                                     </div>
                                     <div class="text-part">
-                                        <p class="mb-1 first-text">Booked 312 times in thelast 24 hours</p>
+                                        <p class="mb-1 first-text">Booked 312 times in the last 24 hours</p>
                                         <p class="m-0 sec-text">Reservation will be released soon</p>
                                     </div>
                                 </div>
@@ -199,5 +213,55 @@
         color: $blue;
         text-decoration: none;
         font-family: PoppinsSemiBold, sans-serif;
+    }
+    .validation-box{
+        position: absolute;
+        height: auto;
+        padding: 50px 20px;
+        width: 350px;
+        background: url("../../assets/mixed/box.png");
+        background-size: 100% 100%;
+        z-index: 99999;
+        background-repeat: no-repeat;
+        top: 0;
+        transform: translateY(-95%);
+        display: none;
+    }
+    .md-focused .validation-box{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .validation-texts ul {
+        margin-bottom: 0;
+    }
+    .validation-header{
+        color: #252525;
+        font-size: 14px;
+        font-family: MontSemiBold, sans-serif;
+        margin-bottom: 0;
+    }
+    .validation-texts li::before{
+        content: "\2022";
+        color: $blue;
+        position: relative;
+        left: -10px;
+        width: 1em;
+        bottom: -3px;
+        font-weight: bold;
+        font-size: 18px;
+    }
+    .validation-texts li{
+        font-family: PoppinsLight, sans-serif;
+        font-size: 12px;
+        list-style-type: none;
+        letter-spacing: 0.14px;
+    }
+    @media (max-width: 768px) {
+        .validation-box {
+            width: 100%;
+            height: auto;
+        }
     }
 </style>

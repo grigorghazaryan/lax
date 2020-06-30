@@ -41,7 +41,7 @@
                     </div>
 
                     <div class="form-group">
-                        <div class="dropdown-header" :class="{'disabled': !model.id}" ref="engine" @click="toggleDropdown('engine')" style="z-index: 7">
+                        <div class="dropdown-header" :disabled="!model.id" :class="{'disabled': !model.id}" ref="engine" @click="toggleDropdown('engine')" style="z-index: 7">
                             <p class="text-left mb-0">{{ engine || "Engine" }}</p>
                             <img src="@/assets/mixed/arr.svg" class="float-right img-fluid" alt="Arrow">
                             <div class="dropdown-body" >
@@ -55,7 +55,7 @@
                     </div>
 
                     <div class="form-group text-right">
-                        <SubmitButton class="sub" :class="{disabled}" title="Select Repairs"/>
+                        <CircleButton class="sub" url="/get-quote" :class="{disabled}" title="Select Repairs"/>
                     </div>
                 </div>
             </div>
@@ -64,13 +64,13 @@
 </template>
 
 <script>
-    import SubmitButton from "../mixed/SubmitButton";
     import Back from "../mixed/Back";
     import axios from "axios";
+    import CircleButton from "../mixed/CircleButton";
 
     export default {
         name: "RepairForm",
-        components: {Back, SubmitButton},
+        components: {CircleButton, Back},
         data: () => ({
             year: "",
             years: [],
@@ -161,6 +161,7 @@
     .sub{
         font-size: 16px;
         padding: 10px 15px;
+        display: inline-block;
     }
     @media (min-width: 1200px) {
         .sub{

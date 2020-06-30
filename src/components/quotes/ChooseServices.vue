@@ -18,7 +18,8 @@
                                 </div>
                                 <input type="text" class="form-control search" placeholder="Search services here" v-model="search">
                                 <div class="dropdown-body" >
-                                    <p v-for="i in 10" :key="i" class="mb-0 text-left drop-element" @click="choose('search', 'Engine '+ i +' ')">{{ "Engine" + i }}</p>
+                                    <p v-for="i in 10" :key="i" class="mb-0 text-left drop-element" @click="choose('search', 'Engine '+ i +' ')">{{ "Engine" + i }}
+                                        <img src="@/assets/mixed/check.png" class="img-fluid float-right" alt="Check Icon"></p>
                                 </div>
                             </div>
                         </div>
@@ -135,6 +136,17 @@
     }
     .service-part{
         padding: 80px 0;
+    }
+    .drop-element:hover img{
+        display: block;
+    }
+    .selected img{
+        display: block!important;
+    }
+    .drop-element img{
+        height: auto;
+        margin-right: 10px;
+        display: none;
     }
     .sb img{
         height: 95px;

@@ -6,7 +6,7 @@
             </router-link>
 
             <div class="menu-cont">
-                <p class="text">Identify Your Car</p>
+                <p class="text">{{ text }}</p>
             </div>
         </nav>
     </div>
@@ -15,6 +15,7 @@
 <script>
     export default {
         name: "RepairHeader",
+        props: ["text"]
     }
 </script>
 

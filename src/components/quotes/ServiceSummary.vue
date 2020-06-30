@@ -91,7 +91,7 @@
     .add-service{
         color: $blue;
         font-family: MontSemiBold, sans-serif;
-        text-decoration: none;
+        text-decoration: none!important;
         display: flex;
         align-items: center;
         float: right;

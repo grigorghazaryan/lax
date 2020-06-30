@@ -1,7 +1,7 @@
 <template>
     <div id="main-header">
         <MainHeader v-if="(header === 1)"/>
-        <RepairHeader v-if="(header === 2)"/>
+        <RepairHeader :text="text" v-if="(header === 2)"/>
         <QuoteHeader :name="routeName" v-if="(header === 3)"/>
     </div>
 </template>
@@ -17,6 +17,7 @@
         data: () => ({
             header: 1,
             routeName: "",
+            text: ""
         }),
         watch:{
             $route (){
@@ -26,6 +27,10 @@
                     this.header = 1;
                 } else if(route == '/repair') {
                     this.header = 2;
+                    this.text = "Identify Your Car";
+                } else if(route == "/get-quote/request-form") {
+                    this.header = 2;
+                    this.text = "Your Request";
                 } else  {
                     this.header = 3;
                 }
