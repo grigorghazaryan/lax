@@ -155,8 +155,9 @@
     }
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
     @import "src/assets/css/style";
+
     .form-section {
         padding: 40px 0;
     }
