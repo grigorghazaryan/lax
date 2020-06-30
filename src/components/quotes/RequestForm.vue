@@ -5,8 +5,8 @@
             <div class="row">
                 <div class="col-12 position-relative">
                     <Back/>
-                    <h2 class="title text-center">Selected Services</h2>
-                    <p class="title-text text-center"></p>
+                    <h2 class="title text-center">See Instant Price</h2>
+                    <p class="title-text text-center">Get your guaranteed price on the next page</p>
                 </div>
             </div>
         </div>

@@ -11,17 +11,7 @@
                 <div class="col-12">
 
                     <div class="form-group">
-                        <div class="dropdown-header" ref="year" @click="toggleDropdown('year')" style="z-index: 10">
-                            <p class="text-left mb-0">{{ year || "Year" }}</p>
-                            <img src="@/assets/mixed/arr.svg" class="float-right img-fluid" alt="Arrow">
-                            <div class="dropdown-body">
-                                <p class="mb-0 text-left drop-element" :class="{'selected': year == y}" v-for="y in years" :key="y" @click="choose('year', y)">{{ y }}</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="dropdown-header" ref="make" @click="toggleDropdown('make')" style="z-index: 9">
+                        <div class="dropdown-header" ref="make" @click="toggleDropdown('make')" style="z-index: 11">
                             <p class="text-left mb-0">{{ make.name || "Make" }}</p>
                             <img src="@/assets/mixed/arr.svg" class="float-right img-fluid" alt="Arrow">
                             <div class="dropdown-body">
@@ -31,17 +21,27 @@
                     </div>
 
                     <div class="form-group">
-                        <div class="dropdown-header" ref="model" @click="toggleDropdown('model')" style="z-index: 8">
-                            <p class="text-left mb-0">{{ model || "Model" }}</p>
+                        <div class="dropdown-header" :class="{'disabled': !make.id}" ref="year" @click="toggleDropdown('year')" style="z-index: 10">
+                            <p class="text-left mb-0" >{{ year || "Year" }}</p>
                             <img src="@/assets/mixed/arr.svg" class="float-right img-fluid" alt="Arrow">
-                            <div class="dropdown-body" >
-                                <p v-for="i in 10" :key="i" class="mb-0 text-left drop-element" @click="choose('model', 'Model '+ i +' ')">{{ "Model" + i }}</p>
+                            <div class="dropdown-body">
+                                <p class="mb-0 text-left drop-element" :class="{'selected': year == y}" v-for="y in years" :key="y" @click="choose('year', y)">{{ y }}</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <div class="dropdown-header" ref="engine" @click="toggleDropdown('engine')" style="z-index: 7">
+                        <div class="dropdown-header" :class="{'disabled': !year}" ref="model" @click="toggleDropdown('model')" style="z-index: 8">
+                            <p class="text-left mb-0">{{ model.name || "Model" }}</p>
+                            <img src="@/assets/mixed/arr.svg" class="float-right img-fluid" alt="Arrow">
+                            <div class="dropdown-body" >
+                                <p v-for="model in model.list" :key="model.Model_ID" class="mb-0 text-left drop-element" @click="choose('model', model.Model_ID)">{{ model.Model_Name }}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="dropdown-header" :class="{'disabled': !model.id}" ref="engine" @click="toggleDropdown('engine')" style="z-index: 7">
                             <p class="text-left mb-0">{{ engine || "Engine" }}</p>
                             <img src="@/assets/mixed/arr.svg" class="float-right img-fluid" alt="Arrow">
                             <div class="dropdown-body" >
@@ -79,7 +79,11 @@
                 name: "",
                 list: []
             },
-            model: "",
+            model: {
+                id: "",
+                name: "",
+                list: []
+            },
             engine: "",
             mileage: undefined,
             disabled: true,
@@ -103,6 +107,7 @@
                 }
             },
             choose(ref, value, valueName = null){
+                if(ref == "make") this.getModels(value);
                 if(typeof this[ref] == "object") {
                     this[ref].id = value;
                     this[ref].name = valueName;
@@ -120,8 +125,13 @@
             async getMakes() {
                 let makes = await axios.get(process.env.VUE_APP_API_URL + "get-makes");
                 this.make.list = makes.data.data || [];
+            },
+            async getModels(value) {
+                let models = await axios.get(process.env.VUE_APP_API_URL + "get-models/" + value);
+                this.model.list = models.data.data;
             }
         },
+
         created() {
             for (let i = new Date().getFullYear(); i >= 1950; i-- ) this.years.push(i);
             this.getMakes();
