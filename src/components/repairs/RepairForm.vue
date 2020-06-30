@@ -25,7 +25,7 @@
                             <p class="text-left mb-0">{{ make.name || "Make" }}</p>
                             <img src="@/assets/mixed/arr.svg" class="float-right img-fluid" alt="Arrow">
                             <div class="dropdown-body">
-                                <p :class="{ 'selected': (make.id == m.Make_ID) }" v-for="m in makes" :key="m.Make_ID" class="mb-0 text-left drop-element" @click="choose('make', m.Make_ID, m.Make_Name)">{{ m.Make_Name }}</p>
+                                <p :class="{ 'selected': (make.id == m.Make_ID) }" v-for="m in make.list" :key="m.Make_ID" class="mb-0 text-left drop-element" @click="choose('make', m.Make_ID, m.Make_Name)">{{ m.Make_Name }}</p>
                             </div>
                         </div>
                     </div>
@@ -76,9 +76,9 @@
             years: [],
             make: {
                 id: "",
-                name: ""
+                name: "",
+                list: []
             },
-            makes: [],
             model: "",
             engine: "",
             mileage: undefined,
@@ -119,7 +119,7 @@
             },
             async getMakes() {
                 let makes = await axios.get(process.env.VUE_APP_API_URL + "get-makes");
-                this.makes = makes.data.data || [];
+                this.make.list = makes.data.data || [];
             }
         },
         created() {

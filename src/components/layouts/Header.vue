@@ -87,7 +87,6 @@
     }
     @media (max-width: 768px) {
         #header{
-            position: absolute;
             top: 0;
             width: 100%;
         }
@@ -148,10 +147,15 @@
             top: 65px;
         }
         .logo{
-            height: 30px;
+            height: 35px!important;
         }
         .navbar{
             margin-left: 12%;
+        }
+    }
+    @media (max-width: 480px) {
+        .navbar{
+            margin-left: 3%;
         }
     }
     .hovered a {
