@@ -9,7 +9,7 @@
                     <label for="email-news">* Email Address</label>
                     <div class="d-md-flex text-center">
                         <input type="email" placeholder="freebies@sales.com" id="email-news" class="form-control">
-                        <SubmitButton class="ml-3 float-md-right mt-2 mt-md-0" title="Subscribe"/>
+                        <SubmitButton class="ml-3 float-md-right mt-2 mt-md-0" title="Subscribe" disabled="false"/>
                     </div>
                 </div>
             </div>

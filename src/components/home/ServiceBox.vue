@@ -1,6 +1,6 @@
 <template>
     <div class="col-md-4 col-12 cont">
-        <div class="box text-center" @mouseenter="handleHover" @mouseleave="handleLeave"
+        <div class="box text-center"
             :class="className ? className : { 'selected-box' : selected }"
             @click="selectBox"
             :style="{'height': height}" >
@@ -29,7 +29,7 @@
 
 
 <script>
-
+ //@mouseenter="handleHover" @mouseleave="handleLeave"
     export default {
         name: "ServiceBox",
         props: ["img", "title", "text", "height", "class-name", "gif"],
