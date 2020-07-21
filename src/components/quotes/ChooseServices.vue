@@ -16,10 +16,13 @@
                                 <div class="search-icon-cont">
                                     <img src="@/assets/mixed/search.png" class="search-icon" alt="Search">
                                 </div>
-                                <input type="text" class="form-control search" placeholder="Search services here" v-model="search">
+                                <input type="text" class="form-control search"  placeholder="Search services here" v-model="search">
                                 <div class="dropdown-body" >
-                                    <p v-for="i in 10" :key="i" class="mb-0 text-left drop-element" @click="choose('search', 'Engine '+ i +' ')">{{ "Engine" + i }}
-                                        <img src="@/assets/mixed/check.png" class="img-fluid float-right" alt="Check Icon"></p>
+                                    <p v-for="i in 10" :key="i" class="mb-0 text-left drop-element" 
+                                        @click="choose($event, 'search', 'Engine '+ i +' ')">
+                                        {{ "Engine" + i }}
+                                        <img src="@/assets/mixed/check.png" class="img-fluid float-right" alt="Check Icon">
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -31,12 +34,14 @@
         <div class="service-part">
             <div class="container">
                 <div class="row">
-                    <service-box title="Synthetic Oil Change" className="hovering" height="220px" class="sb" img="oil.png"/>
-                    <service-box title="Synthetic Oil Change" className="hovering" height="220px" class="sb" img="oil.png"/>
-                    <service-box title="Synthetic Oil Change" className="hovering" height="220px" class="sb" img="oil.png"/>
-                    <service-box title="Synthetic Oil Change" className="hovering" height="220px" class="sb" img="oil.png"/>
-                    <service-box title="Synthetic Oil Change" className="hovering" height="220px" class="sb" img="oil.png"/>
-                    <service-box title="Synthetic Oil Change" className="hovering" height="220px" class="sb" img="oil.png"/>
+                     <div class="col-12 position-relative">
+                        <h4 class="title-small text-center">Common Repairs</h4> 
+                    </div>
+                    <ServiceBox
+                        v-for="(index) in 6" :key="index" 
+                        title="Synthetic Oil Change"  
+                        height="220px" class="sb" img="oil.png" 
+                    ></ServiceBox>
                 </div>
             </div>
         </div>
@@ -52,7 +57,8 @@
         name: "ChooseServices",
         components: {ServiceBox, CircleButton, Back},
         data: () => ({
-            search: ""
+            search: "",
+            selected: [],
         }),
         methods: {
             toggleDropdown(ref) {
@@ -65,8 +71,20 @@
                     this.$refs.touch.classList.remove("block");
                 }
             },
-            choose(ref, value){
-                this[ref] = value;
+            choose(e, ref, value) {    
+                
+                if(this.selected.indexOf(value) === -1) {
+                    this.selected.push(value)
+                }else {
+                   this.selected = this.selected.filter(el => el != value)
+                }
+
+               this[ref] = this.selected.join(', ');
+
+                e.target.classList.toggle('seleted-item')
+
+               e.stopPropagation();
+
             },
             closeDropdown() {
                 let elems = document.getElementsByClassName("show");
@@ -74,7 +92,7 @@
                     element.className = element.className.replace(/\bshow\b/g, "");
                 });
                 this.$refs.touch.classList.remove("block");
-            }
+            },
         }
     }
 </script>
@@ -85,11 +103,20 @@
     .quote{
         padding-top: 50px;
     }
+
     .title{
         color: $black;
         font-size: 30px;
         font-family: MontSemiBold, sans-serif;
     }
+
+    .title-small {
+        margin-bottom: 32.5px;
+        font-size: 24px;
+        font-family: MontSemiBold, sans-serif;
+        color: $black;
+    }
+
     .title-text{
         color: $black;
     }
@@ -131,23 +158,35 @@
     .dropdown-body{
         top: 74px;
     }
+
+    p.drop-element.seleted-item {
+      background: #45afdb !important;
+      color: white;
+
+      img {display: block}
+    }
+
     .show{
         border-bottom: 3px solid transparent;
     }
     .service-part{
-        padding: 80px 0;
+        padding: 53px 0;
     }
+
     .drop-element:hover img{
         display: block;
     }
+
     .selected img{
         display: block!important;
     }
+
     .drop-element img{
         height: auto;
         margin-right: 10px;
         display: none;
     }
+
     .sb img{
         height: 95px;
     }

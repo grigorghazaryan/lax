@@ -15,7 +15,11 @@
                             <p class="text-left mb-0">{{ make.name || "Make" }}</p>
                             <img src="@/assets/mixed/arr.svg" class="float-right img-fluid" alt="Arrow">
                             <div class="dropdown-body">
-                                <p :class="{ 'selected': (make.id == m.Make_ID) }" v-for="m in make.list" :key="m.Make_ID" class="mb-0 text-left drop-element" @click="choose('make', m.Make_ID, m.Make_Name)">{{ m.Make_Name }}</p>
+                                <p :class="{ 'selected': (make.id == m.Make_ID) }" 
+                                    v-for="m in make.list" :key="m.Make_ID"
+                                    class="mb-0 text-left drop-element" 
+                                    @click="choose('make', m.Make_ID, m.Make_Name)">{{ m.Make_Name }}
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -35,7 +39,12 @@
                             <p class="text-left mb-0">{{ model.name || "Model" }}</p>
                             <img src="@/assets/mixed/arr.svg" class="float-right img-fluid" alt="Arrow">
                             <div class="dropdown-body" >
-                                <p v-for="model in model.list" :key="model.Model_ID" class="mb-0 text-left drop-element" @click="choose('model', model.Model_ID)">{{ model.Model_Name }}</p>
+                                <p v-for="model in model.list" 
+                                :key="model.Model_ID" 
+                                class="mb-0 text-left drop-element" 
+                                @click="choose('model', model.Model_ID, model.Model_Name)">
+                                    {{ model.Model_Name }}
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -51,11 +60,18 @@
                     </div>
 
                     <div class="form-group">
-                        <input type="number" placeholder="Estimated Mileage" step="any" class="form-control" v-model="mileage">
+                        <input type="number" 
+                        placeholder="Estimated Mileage" step="any" 
+                        class="form-control" v-model="mileage">
                     </div>
 
                     <div class="form-group text-right">
-                        <CircleButton class="sub" url="/get-quote" :class="{disabled}" title="Select Repairs"/>
+                        <CircleButton 
+                            class="sub" 
+                            url="/get-quote" 
+                            :class="{disabled}" 
+                            title="Select Repairs"
+                        />
                     </div>
                 </div>
             </div>
@@ -114,6 +130,9 @@
                 } else {
                     this[ref] = value;
                 }
+
+                console.log(value)
+                console.log(valueName)
             },
             closeDropdown() {
                 let elems = document.getElementsByClassName("show");
@@ -128,10 +147,17 @@
             },
             async getModels(value) {
                 let models = await axios.get(process.env.VUE_APP_API_URL + "get-models/" + value);
-                this.model.list = models.data.data;
+                this.model.list = models.data.data || [];
+                console.log(models)
             }
         },
-
+        watch: {
+            engine(val) {
+                if(val) {
+                    this.disabled = false
+                }
+            }
+        },
         created() {
             for (let i = new Date().getFullYear(); i >= 1950; i-- ) this.years.push(i);
             this.getMakes();
@@ -142,8 +168,22 @@
 <style scoped lang="scss">
     @import "src/assets/css/style.scss";
 
+    .disabled {
+        background: #f0f0f0;
+        border-color: #b9b9b9;
+        pointer-events: none;
+
+        p {
+            color: #b9b9b9;
+        }
+    }
+
     .repair-form{
         padding-top: 80px;
+
+        .form-control {
+            font-size: 16px;
+        }
     }
     .title{
         font-size: 32px;

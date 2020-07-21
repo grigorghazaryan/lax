@@ -1,9 +1,17 @@
 <template>
     <div class="col-md-4 col-12 cont">
-        <div class="box text-center" @mouseenter="handleHover" @mouseleave="handleLeave" :class="className" :style="{'height': height}">
-            <img v-if="img" :src="require(`@/assets/home/${img}`)" ref="primary" class="img-fluid primary-image" :alt="title">
+        <div class="box text-center" @mouseenter="handleHover" @mouseleave="handleLeave"
+            :class="className ? className : { 'selected-box' : selected }"
+            @click="selectBox"
+            :style="{'height': height}" >
+
+            <div class="block-rotate" v-if="img">
+                <img :src="require(`@/assets/home/${img}`)" ref="primary" class="img-fluid primary-image" :alt="title">
+            </div>
+           
             <img v-if="gif" :src="require(`@/assets/home/${gif}`)" ref="gif" class="img-fluid gif" :alt="title">
-            <h5 class="service-title text-center">{{ title}}</h5>
+            
+            <h5 class="service-title text-center" :class="[img ? 'mt-35' : '']" >{{ title}}</h5>
             <p v-if="text" class="text-center service-text">{{ text }}</p>
             <div class="blue-over-overlay align-items-center justify-content-center">
                 <p class="mb-0 blue-over d-flex justify-content-center align-items-center blue-over-p">
@@ -19,11 +27,21 @@
     </div>
 </template>
 
+
 <script>
+
     export default {
         name: "ServiceBox",
-        props: ["img", "title", "text", "height", "className", "gif"],
+        props: ["img", "title", "text", "height", "class-name", "gif"],
+        data() {
+            return {
+                selected: false,
+            }
+        },
         methods: {
+            selectBox() {
+                this.selected = !this.selected
+            },
             handleHover() {
                 if(this.$props.gif) {
                     this.$refs.primary.classList.add("none");
@@ -43,6 +61,22 @@
 <style scoped lang="scss">
     @import "src/assets/css/style.scss";
 
+    .block-rotate {
+        width: 95px;
+        height: 95px;
+        background: #F3F5F8;
+        transform: rotate(45deg);
+        border-radius: 8px;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            width: 50%;
+            transform: rotate(-45deg);
+        }
+    }
+
     .cont{
         margin-bottom: 15px;
     }
@@ -58,9 +92,25 @@
     .box{
         padding: 40px 17px 17px 20px;
         box-shadow: 0px 2px 20px #221F1F33;
+        background: white;
         height: 340px;
         overflow: hidden;
-        background: white;
+        border: 2px solid transparent;
+        box-sizing: border-box;
+        transition: border-color .3s;
+        cursor: pointer;
+
+        &:hover {
+            box-shadow: none;
+            border-color:  $lblue;
+        }
+
+        &.selected-box {
+            box-shadow: none;
+            border-color:  $lblue;
+            background: #e9f1fe;
+        }
+        
     }
     .add-p span{
         font-size: 22px;
@@ -68,24 +118,28 @@
     .service-title, .service-text {
         color: #4A4A4A;
     }
+    .mt-35 {
+        margin-top: 35px;
+    }
     .service-title {
+        margin-bottom: 0;
         font-family: MontBold, sans-serif;
     }
     .service-text {
         font-family: PoppinsRegular, sans-serif;
     }
-    .box > img{
+    .box > img {
         height: 74px;
         margin-bottom: 50px;
         transition: .5s;
     }
-    .hovering{
-        transition: .3s;
-    }
-    .hovering:hover{
-        box-shadow: none;
-        outline: 3px solid $lblue;
-    }
+    //.hovering{
+    //    transition: .3s;
+    //}
+    //.hovering:hover{
+    //    box-shadow: none;
+    //    outline: 3px solid $lblue;
+    //}
     .title-box{
         height: auto;
         padding: 20px;

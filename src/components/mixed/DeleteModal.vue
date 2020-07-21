@@ -7,8 +7,8 @@
                         <div class="body">
                             <p class="del-title">Are you sure you want to remove ?</p>
                             <div class="buttons d-flex justify-content-between">
-                                <SubmitButton title="Yes" className="del" class="yes" colors="#C90058"/>
-                                <SubmitButton title="Cancel" @click.native="$emit('close')" class="cancel"/>
+                                <SubmitButton title="Yes" className="del" class="yes" colors="#C90058" disabled="false"/>
+                                <SubmitButton title="Cancel" @click.native="$emit('close')" class="cancel" disabled="false"/>
                             </div>
                         </div>
                     </div>

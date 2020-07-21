@@ -72,11 +72,13 @@
                         <div class="col-md-8 offset-md-2 mt-2">
                             <div class="dropdown-header" ref="found" style="z-index: 7" @click="toggleDropdown('found')">
                                 <input type="text" class="form-control search" placeholder="How did you hear about us?" v-model="found">
+                                <img src="@/assets/mixed/arr.svg" class="float-right img-fluid" alt="Arrow">
                                 <div class="dropdown-body" >
                                     <p v-for="i in 10" :key="i" class="mb-0 text-left drop-element" @click="choose('found', 'found '+ i +' ')">{{ "found" + i }}</p>
                                 </div>
                             </div>
                         </div>
+
                     </div>
                     <div class="row">
                         <div class="col-md-8 offset-md-2 mt-5">
@@ -91,13 +93,13 @@
                                     </div>
                                 </div>
                                 <div class="right-part mt-4 mt-md-0">
-                                    <SubmitButton title="See Instant Price"/>
+                                    <SubmitButton title="See Instant Price" :disabled="this.accept"/>
                                 </div>
                             </div>
                             <div class="checkbox-cont mt-5">
                                 <div class="d-flex align-items-center">
-                                    <input type="checkbox" id="check" class="d-inline check">
-                                    <label for="check" class="check-text mb-0">By accepting, I agree to LAX Auto Repair Terms of Service and acknowledge I’ve read the Privacy Policy.
+                                    <input type="checkbox" id="check" v-model="accept" class="d-inline check">
+                                    <label for="check"  class="check-text mb-0">By accepting, I agree to LAX Auto Repair Terms of Service and acknowledge I’ve read the Privacy Policy.
                                         <br> I also agree that LAX Auto Repair and its Certified Shop may communicate with me via email, text, or phone.</label>
                                 </div>
                             </div>
@@ -128,7 +130,8 @@
         components: {SubmitButton, Back},
         data: () => ({
             sending: false,
-            found: ""
+            found: "",
+            accept: false,
         }),
         methods: {
             toggleDropdown(ref) {
@@ -158,6 +161,12 @@
 <style scoped lang="scss">
     @import "src/assets/css/style";
 
+    .right-part {
+        .circled-button {
+            font-size: 16px;
+        }
+    }
+
     .form-section {
         padding: 40px 0;
     }
@@ -167,15 +176,25 @@
     .title{
         color: $black;
     }
-    .title-text{
+    .title-text {
         color: $black;
+        font-size: 16px;
     }
     .main-form{
         padding-top: 100px;
     }
-    .dropdown-header input{
-        padding-top: 0;
-        padding-left: 10px;
+    .dropdown-header {
+
+        input {
+            padding-top: 0;
+            padding-left: 10px;
+        }
+
+        img {
+            position: absolute;
+            right: 0;
+        }
+
     }
     .dropdown-header, .dropdown-header input{
         margin: 0;
@@ -199,12 +218,14 @@
         color: #A2A2A2;
         font-family: PoppinsRegular, sans-serif;
         font-size: 12px;
+        cursor: pointer;
     }
     .check{
         width: 24px;
         height: 24px;
         margin-right: 10px;
         border-radius: 5px;
+        cursor: pointer;
     }
     .sign-cont p{
         color: $black;

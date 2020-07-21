@@ -10,7 +10,10 @@
                     </div>
                 </div>
                 <div class="row selected-services-container">
-                    <ServiceBox @click.native="showModal = true" class="chosen-boxes" title="Synthetic Oil Change" class-name="title-box"/>
+                    <ServiceBox @click.native="showModal = true" 
+                        class="chosen-boxes" title="Synthetic Oil Change" 
+                        class-name="title-box" ></ServiceBox>
+
                     <ServiceBox @click.native="showModal = true" class="chosen-boxes" title="Replace Battery" class-name="title-box"/>
                     <ServiceBox @click.native="showModal = true" class="chosen-boxes" title="Replace Starter Motor" class-name="title-box"/>
                     <ServiceBox @click.native="showModal = true" class="chosen-boxes" title="Check Engine Light Diagnosis" class-name="title-box"/>
@@ -79,8 +82,13 @@
         font-family: MontSemiBold, sans-serif;
     }
     .related-part{
-        padding: 50px 0;
+        padding: 70px 0;
         background: #D8E4FB;
+
+        .title-text { 
+            font-size: 16px;
+            margin-bottom: 32px 
+        }
     }
     .selected-part{
         padding: 80px 0 20px 0;
