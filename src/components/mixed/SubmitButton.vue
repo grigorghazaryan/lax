@@ -33,6 +33,10 @@
             background: #A2A2A2 !important;
             color: #fff !important;
         }
+
+        &:hover {
+            background: #45AFDB !important
+        }
     }
     .buttons .circled-button.cancel:hover {
         background: #45AFDB !important

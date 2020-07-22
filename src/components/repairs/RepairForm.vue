@@ -153,10 +153,6 @@
             },
             choose(ref, value, valueName = null){
 
-                console.log(ref)
-                console.log(value)
-                console.log(valueName)
-
                 //if(ref == "make") this.getModels(value);
                 if(typeof this[ref] == "object") {
                     this[ref].id = value;

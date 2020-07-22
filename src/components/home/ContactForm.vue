@@ -22,7 +22,7 @@
         </div>
         <div class="col-md-12">
             <div class="form-group text-sm-right text-center">
-                <SubmitButton title="Send" disabled="false"/>
+                <SubmitButton title="Send" disabled="false" />
             </div>
         </div>
     </div>

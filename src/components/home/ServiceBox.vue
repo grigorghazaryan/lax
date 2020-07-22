@@ -1,15 +1,17 @@
 <template>
     <div class="col-md-4 col-12 cont">
         <div class="box text-center"
+            @mouseenter="handleHover" 
+            @mouseleave="handleLeave"
             :class="className ? className : { 'selected-box' : selected }"
             @click="selectBox"
             :style="{'height': height}" >
 
             <div class="block-rotate" v-if="img">
                 <img :src="require(`@/assets/home/${img}`)" ref="primary" class="img-fluid primary-image" :alt="title">
+                <img v-if="gif" :src="require(`@/assets/home/${gif}`)" ref="gif" class="img-fluid gif" :alt="title">
             </div>
            
-            <img v-if="gif" :src="require(`@/assets/home/${gif}`)" ref="gif" class="img-fluid gif" :alt="title">
             
             <h5 class="service-title text-center" :class="[img ? 'mt-35' : '']" >{{ title}}</h5>
             <p v-if="text" class="text-center service-text">{{ text }}</p>
@@ -40,7 +42,9 @@
         },
         methods: {
             selectBox() {
-                this.selected = !this.selected
+                if(!this.$props.gif) {
+                    this.selected = !this.selected
+                }
             },
             handleHover() {
                 if(this.$props.gif) {
