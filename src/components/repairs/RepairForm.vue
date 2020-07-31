@@ -11,8 +11,21 @@
                 <div class="col-12">
 
                     <div class="form-group">
-                        <div class="dropdown-header" ref="make" 
-                        @click="toggleDropdown('make')" style="z-index: 11">
+                        <div class="dropdown-header" ref="year" 
+                        @click="toggleDropdown('year')" style="z-index: 11">
+                            <p class="text-left mb-0" >{{ year || "Year" }}</p>
+                            <img src="@/assets/mixed/arr.svg" class="float-right img-fluid" alt="Arrow">
+                            <div class="dropdown-body">
+                                <p class="mb-0 text-left drop-element" 
+                                :class="{'selected': year == y}" v-for="y in years" :key="y"
+                                 @click="choose('year', y)">{{ y }}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="dropdown-header" :class="{'disabled': !year}" ref="make" 
+                        @click="toggleDropdown('make')" style="z-index: 10">
                             <p class="text-left mb-0">{{ make.name || "Make" }}</p>
                             <img src="@/assets/mixed/arr.svg" class="float-right img-fluid" alt="Arrow">
                             <div class="dropdown-body">
@@ -26,20 +39,7 @@
                     </div>
 
                     <div class="form-group">
-                        <div class="dropdown-header" :class="{'disabled': !make.id}" ref="year" 
-                        @click="toggleDropdown('year')" style="z-index: 10">
-                            <p class="text-left mb-0" >{{ year || "Year" }}</p>
-                            <img src="@/assets/mixed/arr.svg" class="float-right img-fluid" alt="Arrow">
-                            <div class="dropdown-body">
-                                <p class="mb-0 text-left drop-element" 
-                                :class="{'selected': year == y}" v-for="y in years" :key="y"
-                                 @click="choose('year', y)">{{ y }}</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="dropdown-header" :class="{'disabled': !year}" ref="model" @click="toggleDropdown('model')" style="z-index: 8">
+                        <div class="dropdown-header" :class="{'disabled': !make.id}" ref="model" @click="toggleDropdown('model')" style="z-index: 8">
                             <p class="text-left mb-0">{{ model.name || "Model" }}</p>
                             <img src="@/assets/mixed/arr.svg" class="float-right img-fluid" alt="Arrow">
                             <div class="dropdown-body" >
@@ -70,9 +70,15 @@
                     </div>
 
                     <div class="form-group">
-                        <input type="number" 
-                        placeholder="Estimated Mileage" step="any" 
-                        class="form-control" v-model="mileage">
+                        <input 
+                            type="number" 
+                            :disabled="!engine"
+                            placeholder="Estimated Mileage" 
+                            step="any" 
+                            class="form-control" 
+                            :class="{'disabled': !engine}" 
+                            v-model="mileage"
+                        >
                     </div>
 
                     <div class="form-group text-right">
@@ -203,6 +209,10 @@
 
         p {
             color: #b9b9b9;
+        }
+
+        &::placeholder {
+           color: #b9b9b9 !important;
         }
     }
 

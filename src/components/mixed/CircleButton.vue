@@ -12,7 +12,7 @@
     }
 </script>
 
-<style scoped >
+<style scoped scss>
 
         a.circled-button {
             padding: 13px 25px;

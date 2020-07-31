@@ -89,6 +89,7 @@
     }
     .second{
         color: $blue;
+        margin-bottom: 50px;
     }
     .below-text-cont {
         position: absolute;

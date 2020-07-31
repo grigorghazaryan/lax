@@ -49,6 +49,7 @@
         transition: .4s;
     }
     #header{
+        padding-top: 35px;
         position: relative;
         z-index: 999999999;
     }
@@ -66,6 +67,7 @@
     .menu{
         display: flex;
         list-style-type: none;
+        margin-bottom: 0;
     }
     .menu li{
         margin-right: 40px;
@@ -85,7 +87,7 @@
     }
     @media (min-width: 992px) {
         .navbar{
-            margin: 15px auto 0 auto;
+           
             padding: 0 17%!important;
             max-width: 1920px;
         }

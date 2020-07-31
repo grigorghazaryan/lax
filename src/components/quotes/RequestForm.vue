@@ -16,16 +16,6 @@
                     <div class="row">
                         <div class="col-md-4 offset-md-2 position-relative">
                             <md-field class="md-cont position-relative">
-                                <div class="validation-box">
-                                    <p class="validation-header">First Name must have:</p>
-                                    <div class="validation-texts">
-                                        <ul class="pl-0">
-                                            <li>100 characters</li>
-                                            <li>Upper and lower letters</li>
-                                            <li>100 characters</li>
-                                        </ul>
-                                    </div>
-                                </div>
                                 <label for="first-name">* First Name</label>
                                 <md-input name="first-name" class="form-md" id="first-name" autocomplete="given-name" :disabled="sending" />
 <!--                                <span class="md-error" v-if="!$v.form.firstName.required">The first name is required</span>-->
@@ -34,7 +24,6 @@
                         </div>
                         <div class="col-md-4">
                             <md-field class="md-cont position-relative">
-                                <div class="validation-box"></div>
                                 <label for="last-name">* Last Name</label>
                                 <md-input name="last-name" class="form-md" id="last-name" autocomplete="given-name" :disabled="sending" />
 <!--                                <span class="md-error" v-if="!$v.form.firstName.required">The first name is required</span>-->
@@ -43,16 +32,31 @@
                         </div>
                         <div class="col-md-8 offset-md-2">
                             <md-field class="md-cont position-relative">
-                                <div class="validation-box"></div>
-                                <label for="email">*Email Address</label>
-                                <md-input type="email" name="email" class="form-md" id="email" autocomplete="given-name" :disabled="sending" />
-<!--                                <span class="md-error" v-if="!$v.form.firstName.required">The first name is required</span>-->
-<!--                                <span class="md-error" v-else-if="!$v.form.firstName.minlength">Invalid first name</span>-->
+                                <label for="email">* Email Address</label>
+                                <md-input 
+                                    type="email" 
+                                    name="email" 
+                                    class="form-md"
+                                    id="email" 
+                                    autocomplete="given-name" 
+                                    :disabled="sending" 
+                                    v-model="email"
+                                />
+                                <span v-if="msg.email" class="text-danger">{{msg.email}}</span>
                             </md-field>
                         </div>
                         <div class="col-md-4 offset-md-2">
                             <md-field class="md-cont position-relative">
-                                <div class="validation-box"></div>
+                                <div class="validation-box">
+                                    <p class="validation-header">Your password must have:</p>
+                                    <div class="validation-texts">
+                                        <ul class="pl-0">
+                                            <li>8 or more characters</li>
+                                            <li>Upper & lowercase letters</li>
+                                            <li>At least one number</li>
+                                        </ul>
+                                    </div>
+                                </div>
                                 <label for="password">* Password</label>
                                 <md-input type="password" name="password" class="form-md" id="password" autocomplete="off" :disabled="sending" />
 <!--                                <span class="md-error" v-if="!$v.form.firstName.required">The first name is required</span>-->
@@ -61,46 +65,27 @@
                         </div>
                         <div class="col-md-4">
                             <md-field class="md-cont position-relative">
-                                <div class="validation-box"></div>
                                 <label for="phone">* Phone Number</label>
-                                <md-input name="phone" class="form-md" id="phone" autocomplete="given-name" :disabled="sending" />
-<!--                                <span class="md-error" v-if="!$v.form.firstName.required">The first name is required</span>-->
-<!--                                <span class="md-error" v-else-if="!$v.form.firstName.minlength">Invalid first name</span>-->
+                                <md-input name="number" class="form-md" id="phone" autocomplete="given-name" :disabled="sending" />
+                                <span class="md-error">The first name is required</span>
                             </md-field>
-                        </div>
-
-                        <div class="col-md-8 offset-md-2 mt-2">
-                            <div class="dropdown-header" ref="found" style="z-index: 7" @click="toggleDropdown('found')">
-                                <input type="text" class="form-control search" placeholder="How did you hear about us?" v-model="found">
-                                <img src="@/assets/mixed/arr.svg" class="float-right img-fluid" alt="Arrow">
-                                <div class="dropdown-body" >
-                                    <p v-for="i in 10" :key="i" class="mb-0 text-left drop-element" @click="choose('found', 'found '+ i +' ')">{{ "found" + i }}</p>
-                                </div>
-                            </div>
                         </div>
 
                     </div>
                     <div class="row">
                         <div class="col-md-8 offset-md-2 mt-5">
-                            <div class="cont d-flex flex-column flex-md-row justify-content-between align-items-center">
-                                <div class="left-part d-flex align-items-center">
-                                    <div class="img-cont mr-2">
-                                        <img src="@/assets/mixed/information.png" alt="Info">
-                                    </div>
-                                    <div class="text-part">
-                                        <p class="mb-1 first-text">Booked 312 times in the last 24 hours</p>
-                                        <p class="m-0 sec-text">Reservation will be released soon</p>
-                                    </div>
-                                </div>
+                            <div class="cont d-flex flex-md-row justify-content-end align-items-center">
+                                
                                 <div class="right-part mt-4 mt-md-0">
                                     <SubmitButton title="See Instant Price" :disabled="this.accept"/>
                                 </div>
                             </div>
-                            <div class="checkbox-cont mt-5">
+
+                            <div class="checkbox-cont">
                                 <div class="d-flex align-items-center">
                                     <input type="checkbox" id="check" v-model="accept" class="d-inline check">
                                     <label for="check"  class="check-text mb-0">By accepting, I agree to LAX Auto Repair Terms of Service and acknowledge I’ve read the Privacy Policy.
-                                        <br> I also agree that LAX Auto Repair and its Certified Shop may communicate with me via email, text, or phone.</label>
+                                    <br> I also agree that LAX Auto Repair and its Certified Shop may communicate with me via email, text, or phone.</label>
                                 </div>
                             </div>
                             <div class="sign-cont mt-5">
@@ -124,7 +109,8 @@
     //     minLength,
     //     maxLength
     // } from 'vuelidate/lib/validators'
-
+    
+    
     export default {
         name: "RequestForm",
         components: {SubmitButton, Back},
@@ -132,8 +118,31 @@
             sending: false,
             found: "",
             accept: false,
+
+            firstName: '',
+            lastName: '',
+            email: '',
+            password: '',
+            phone: '',
+
+            msg: [],
         }),
+         watch: {
+            email(value){
+                this.email = value
+                this.validateEmail(value)
+            }
+        },
         methods: {
+            validateEmail(value){
+                const reg = /[^@]+@[^@]+\.[^@]+/;
+                if (reg.test(value)) {
+                    this.msg['email'] = ''
+                   // this.msg = this.msg.filter(email => email == 'email')
+                }else{
+                    this.msg['email'] = 'Invalid Email Address'
+                } 
+            },
             toggleDropdown(ref) {
                 if(!this.$refs[ref].classList.contains("show")) {
                     this.closeDropdown();
@@ -226,6 +235,9 @@
         margin-right: 10px;
         border-radius: 5px;
         cursor: pointer;
+    }
+    .checkbox-cont {
+        margin-top: 149px;
     }
     .sign-cont p{
         color: $black;

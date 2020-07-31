@@ -2,7 +2,7 @@
     <div class="services">
         <div class="container">
             <div class="row">
-                <div class="col-12 mb-3">
+                <div class="col-12">
                     <div class="title-part">
                         <h3 class="title">At Your Service</h3>
                         <h5 class="subtitle">Check out what we can do for you and more!</h5>
@@ -32,6 +32,15 @@
     .title, .subtitle, .title-text{
         color: #4A4A4A;
         text-align: center;
+    }
+    .title {
+        margin-bottom: 10;
+    }
+    .subtitle {
+        margin-bottom: 20px;
+    }
+    .title-text {
+        margin-bottom: 32px;
     }
     .subtitle {
         font-family: PoppinsRegular, sans-serif;

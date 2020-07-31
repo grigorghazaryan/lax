@@ -32,7 +32,13 @@
         &:disabled {
             background: #A2A2A2 !important;
             color: #fff !important;
+
+            &:hover {
+               background: #A2A2A2 !important;
+            }
         }
+
+
 
         &:hover {
             background: #45AFDB !important
