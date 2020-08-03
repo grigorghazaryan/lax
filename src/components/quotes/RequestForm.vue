@@ -16,23 +16,46 @@
                     <div class="row">
                         <div class="col-md-4 offset-md-2 position-relative">
                             <md-field class="md-cont position-relative">
-                                <label for="first-name">* First Name</label>
-                                <md-input name="first-name" class="form-md" id="first-name" autocomplete="given-name" :disabled="sending" />
+                                <label for="first-name"
+                                :class="{ 'text-danger' : msg.firstName }"
+                                >* First Name</label>
+                                <md-input 
+                                    name="first-name" 
+                                    class="form-md" 
+                                    id="first-name" 
+                                    autocomplete="given-name" 
+                                    :disabled="sending"
+                                    v-model="firstName"
+                                />
+                                <span v-if="msg.firstName" class="text-danger">{{msg.firstName}}</span>
 <!--                                <span class="md-error" v-if="!$v.form.firstName.required">The first name is required</span>-->
 <!--                                <span class="md-error" v-else-if="!$v.form.firstName.minlength">Invalid first name</span>-->
                             </md-field>
                         </div>
                         <div class="col-md-4">
                             <md-field class="md-cont position-relative">
-                                <label for="last-name">* Last Name</label>
-                                <md-input name="last-name" class="form-md" id="last-name" autocomplete="given-name" :disabled="sending" />
+                                <label for="last-name" 
+                                :class="{ 'text-danger' : msg.lastName }"
+                                >* Last Name</label>
+                                <md-input 
+                                    name="last-name" 
+                                    class="form-md" 
+                                    id="last-name" 
+                                    autocomplete="given-name" 
+                                    :disabled="sending" 
+                                    v-model="lastName"
+                                />
+                                <span v-if="msg.lastName" class="text-danger">{{msg.lastName}}</span>
 <!--                                <span class="md-error" v-if="!$v.form.firstName.required">The first name is required</span>-->
 <!--                                <span class="md-error" v-else-if="!$v.form.firstName.minlength">Invalid first name</span>-->
                             </md-field>
                         </div>
                         <div class="col-md-8 offset-md-2">
                             <md-field class="md-cont position-relative">
-                                <label for="email">* Email Address</label>
+                                <label 
+                                    for="email" :class="{ 'text-danger' : msg.email }" >
+                                    * Email Address
+                                </label>
                                 <md-input 
                                     type="email" 
                                     name="email" 
@@ -51,23 +74,51 @@
                                     <p class="validation-header">Your password must have:</p>
                                     <div class="validation-texts">
                                         <ul class="pl-0">
-                                            <li>8 or more characters</li>
-                                            <li>Upper & lowercase letters</li>
-                                            <li>At least one number</li>
+                                            <li 
+                                                :class="{ 'text-danger' : msg.password }">8 or more characters</li>
+                                            <li
+                                                :class="{ 'text-danger' : msg.pswd_letters }">
+                                                Upper & lowercase letters
+                                            </li>
+                                            <li 
+                                                :class="{'text-danger' : msg.pswd_number}">
+                                                At least one number
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
-                                <label for="password">* Password</label>
-                                <md-input type="password" name="password" class="form-md" id="password" autocomplete="off" :disabled="sending" />
+                                <label for="password"
+                                    :class="{ 'text-danger' : msg.password }"
+                                >* Password</label>
+                                <md-input 
+                                    type="password" 
+                                    name="password" 
+                                    class="form-md" 
+                                    id="password" 
+                                    autocomplete="off" 
+                                    :disabled="sending" 
+                                    v-model="password"
+                                />
+                                <span v-if="msg.password" class="text-danger mr-35">{{msg.password}}</span>
 <!--                                <span class="md-error" v-if="!$v.form.firstName.required">The first name is required</span>-->
 <!--                                <span class="md-error" v-else-if="!$v.form.firstName.minlength">Invalid first name</span>-->
                             </md-field>
                         </div>
                         <div class="col-md-4">
                             <md-field class="md-cont position-relative">
-                                <label for="phone">* Phone Number</label>
-                                <md-input name="number" class="form-md" id="phone" autocomplete="given-name" :disabled="sending" />
-                                <span class="md-error">The first name is required</span>
+                                <label for="phone"
+                                    :class="{ 'text-danger' : msg.phone }"
+                                >* Phone Number</label>
+                                <md-input 
+                                    name="number" 
+                                    type="number"
+                                    class="form-md" 
+                                    id="phone" 
+                                    autocomplete="given-name" 
+                                    :disabled="sending"
+                                    v-model="phone"
+                                    />
+                                   <span v-if="msg.phone" class="text-danger">{{msg.phone}}</span>
                             </md-field>
                         </div>
 
@@ -77,15 +128,17 @@
                             <div class="cont d-flex flex-md-row justify-content-end align-items-center">
                                 
                                 <div class="right-part mt-4 mt-md-0">
-                                    <SubmitButton title="See Instant Price" :disabled="this.accept"/>
+                                    <SubmitButton title="See Instant Price" :disabled='isDisable'/>
                                 </div>
                             </div>
 
                             <div class="checkbox-cont">
                                 <div class="d-flex align-items-center">
                                     <input type="checkbox" id="check" v-model="accept" class="d-inline check">
-                                    <label for="check"  class="check-text mb-0">By accepting, I agree to LAX Auto Repair Terms of Service and acknowledge I’ve read the Privacy Policy.
-                                    <br> I also agree that LAX Auto Repair and its Certified Shop may communicate with me via email, text, or phone.</label>
+                                    <label for="check"  class="check-text mb-0">By accepting, I agree to LAX Auto 
+                                        Repair Terms of Service and acknowledge I’ve read the Privacy Policy.
+                                    <br> I also agree that LAX Auto Repair and its Certified Shop may communicate 
+                                    with me via email, text, or phone.</label>
                                 </div>
                             </div>
                             <div class="sign-cont mt-5">
@@ -102,6 +155,7 @@
 <script>
     import Back from "../mixed/Back";
     import SubmitButton from "../mixed/SubmitButton";
+
     // import { validationMixin } from 'vuelidate'
     // import {
     //     required,
@@ -127,21 +181,106 @@
 
             msg: [],
         }),
-         watch: {
+        watch: {
             email(value){
-                this.email = value
+                //this.email = value
                 this.validateEmail(value)
-            }
+            },
+            firstName(value){
+                if(value.length <= 3) {
+                    this.msg['firstName'] = 'Required'
+                }else {
+                    this.msg = this.msg.splice(this.msg.indexOf('firstName'), 1);
+                }
+            },
+            lastName(value) {
+                if(value.length <= 3) {
+                    this.msg['lastName'] = 'Required'
+                }else {
+                   this.msg = this.msg.splice(this.msg.indexOf('lastName'), 1);
+                }
+            },
+            password(value) {
+
+                if(value.length < 8) {
+                    this.msg['password'] = 'Required'
+                }
+                else {
+                    this.msg = this.msg.splice(this.msg.indexOf('password'), 1);
+                }
+
+                let number = this.hasNumbers(value)
+                if(number) {
+                     this.msg = this.msg.splice(this.msg.indexOf('pswd_number'), 1);
+                }else {
+                   this.msg['pswd_number'] = 'false'
+                   this.msg['password'] = 'Required'
+                }
+
+
+                let lower = this.hasLowercase(value)
+                let upper = this.hasUppercase(value)
+
+                if(lower && upper) {
+                    this.msg = this.msg.splice(this.msg.indexOf('pswd_letters'), 1);
+                }else {
+                   this.msg['pswd_letters'] = 'false'
+                   this.msg['password'] = 'Required'
+                }
+            },
+            phone(value) {
+                let phone = this.validateMobileNumber(value)
+                if(phone) {
+                    this.msg = this.msg.splice(this.msg.indexOf('phone'), 1);
+                }else {
+                    this.msg['phone'] = 'Required'
+                }
+                console.log(this.msg)
+            },
+         //   accept(value) {
+                //if(value) {
+              //       if( this.msg['firstName'] == '' && 
+              //          this.msg['lastName'] == '' &&  
+              //          this.msg['email'] == '' &&
+              //          this.msg['password'] == '' &&
+              //          this.msg['phone'] == '' &&
+               //         this.accept ) {
+               //            this.finalValidate = true
+               //     }
+           //     }
+          //  }
         },
         methods: {
             validateEmail(value){
                 const reg = /[^@]+@[^@]+\.[^@]+/;
                 if (reg.test(value)) {
-                    this.msg['email'] = ''
-                   // this.msg = this.msg.filter(email => email == 'email')
+                    this.msg = this.msg.splice(this.msg.indexOf('email'), 1);
                 }else{
-                    this.msg['email'] = 'Invalid Email Address'
+                    this.msg['email'] = 'Required'
                 } 
+            },
+            hasNumbers(value){
+                var regex = /\d/g;
+                return regex.test(value);
+            },
+            hasLowercase(value) {
+                if(value.search(/[a-z]/) == -1) {
+                    return false
+                } else {
+                    return true
+                }
+            },
+            validateMobileNumber(value) {
+                let patt = /^\+?1?\s*?\(?\d{3}(?:\)|[-|\s])?\s*?\d{3}[-|\s]?\d{4}$/
+                console.log(patt.test(value))
+                return patt.test(value);
+            },
+            hasUppercase(value) {
+                if(value.search(/[A-Z]/) == -1) {
+                    return false
+                }else {
+                    return true
+                }
             },
             toggleDropdown(ref) {
                 if(!this.$refs[ref].classList.contains("show")) {
@@ -163,6 +302,24 @@
                 });
                 this.$refs.touch.classList.remove("block");
             },
+        },
+        computed: {
+            isDisable() {
+                if( 
+                   // this.msg['firstName'] == '' && 
+                  //  this.msg['lastName'] == '' &&  
+                   // this.msg['email'] == '' &&
+                    //this.msg['password'] == '' &&
+                    //this.msg['pswd_number'] == '' &&
+                    //this.msg['pswd_letters'] == '' &&
+                    //this.msg['phone'] == '' &&
+                    this.accept & this.msg.length == 0
+                ){
+                    return true
+                } else {
+                    return false
+                }
+            }
         }
     }
 </script>
@@ -298,4 +455,9 @@
             height: auto;
         }
     }
+    
+.mr-35 {
+  margin-right: 35px !important;
+}
+
 </style>

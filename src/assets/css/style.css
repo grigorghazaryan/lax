@@ -1,3 +1,5 @@
+
+
 .form-md {
   -webkit-text-fill-color: #4A4A4A !important;
   min-height: 40px;
@@ -11,9 +13,14 @@
 }
 
 .md-cont:after {
-  background: #d8e4fb !important;
+  background: #d8e4fb;
   height: 3px;
 }
+
+.md-error {
+  color: red !important;
+}
+
 
 .disabled {
   cursor: not-allowed;
