@@ -141,6 +141,7 @@
                                     with me via email, text, or phone.</label>
                                 </div>
                             </div>
+                            
                             <div class="sign-cont mt-5">
                                 <p class="text-center">Already have an account? <router-link to="/sign-in">Sign In</router-link></p>
                             </div>

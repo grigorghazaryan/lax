@@ -1,10 +1,30 @@
 <template>
-    <div id="main-header">
+    <div id="main-header" v-if='false'>
         <MainHeader v-if="(header === 1)"/>
         <RepairHeader :text="text" v-if="(header === 2)"/>
         <QuoteHeader :name="routeName" v-if="(header === 3)"/>
     </div>
 </template>
+
+
+<script>
+export default {
+    data() {
+        return {
+            showHeader: false
+        }
+    },
+    computed: {
+        main() {
+            if(this.$route.path == '/sign-in') {
+                return false
+            }else {
+                return true
+            }
+        }
+    }
+}
+</script>
 
 <script>
     import MainHeader from "./headers/MainHeader";
