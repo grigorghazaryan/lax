@@ -1,6 +1,6 @@
 <template>
-    <div class="forgot-parent">
-        <div class="forgot-parent">
+    <div class="forgot-wrapper">
+        <div class="forgot-pswd-parent">
             <div class="icon">
                 <img src="@/assets/mixed/forgot-password.png" />
             </div>
@@ -44,7 +44,7 @@
 
 @import "src/assets/css/style";
 
-    .forgot-parent {
+    .forgot-wrapper {
         width: 100%;
         height: 80vh;
 
@@ -52,7 +52,7 @@
         justify-content: center;
         align-items: center;
 
-        .forgot-parent {
+        .forgot-pswd-parent {
 
             width: 400px;
             height: auto;
