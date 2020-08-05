@@ -1,30 +1,10 @@
 <template>
-    <div id="main-header" v-if='false'>
-        <MainHeader v-if="(header === 1)"/>
+    <div id="main-header" :class="{ 'fixed-header' : fixed }">
+        <MainHeader v-if="(header === 1)" :showLogo='fixed'/>
         <RepairHeader :text="text" v-if="(header === 2)"/>
         <QuoteHeader :name="routeName" v-if="(header === 3)"/>
     </div>
 </template>
-
-
-<script>
-export default {
-    data() {
-        return {
-            showHeader: false
-        }
-    },
-    computed: {
-        main() {
-            if(this.$route.path == '/sign-in') {
-                return false
-            }else {
-                return true
-            }
-        }
-    }
-}
-</script>
 
 <script>
     import MainHeader from "./headers/MainHeader";
@@ -37,12 +17,16 @@ export default {
         data: () => ({
             header: 1,
             routeName: "",
-            text: ""
+            text: "",
+            fixed: false,
         }),
         watch:{
             $route (){
+
                 let route = this.$router.currentRoute.path;
                 this.routeName = this.$router.currentRoute.name;
+                this.fixed = false
+
                 if(route == "/") {
                     this.header = 1;
                 } else if(route == '/repair') {
@@ -51,14 +35,28 @@ export default {
                 } else if(route == "/get-quote/request-form") {
                     this.header = 2;
                     this.text = "Your Request";
-                } else  {
+                }else if(route == '/sign-in') {
+                    this.header = 1;
+                    this.fixed = true
+                }else  if(route == '/forgot-password') {
+                    this.header = 1;
+                }
+                else{
                     this.header = 3;
+                    this.fixed = false
                 }
             }
-        }
+        },
     }
 </script>
+
 <style>
+    .fixed-header {
+        position: absolute;
+        width: 100%;
+        top: 0;
+        left: 0;
+    }
     .navbar-nav li {
         margin-right: 40px;
     }
@@ -72,6 +70,11 @@ export default {
         padding-top: 35px;
         position: relative;
         z-index: 999999999;
+    }
+    @media screen and (max-width: 768px) and (min-width: 300px) {
+      #header {
+          padding-top: 0
+      }
     }
     .logo{
         height: 54px;

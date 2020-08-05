@@ -89,6 +89,7 @@
                             title="Select Repairs"
                         />
                     </div>
+
                 </div>
             </div>
         </div>
@@ -186,9 +187,11 @@
             //}
         },
         watch: {
-            engine(val) {
+            mileage(val) {
                 if(val) {
                     this.disabled = false
+                }else {
+                    this.disabled = true
                 }
             }
         },

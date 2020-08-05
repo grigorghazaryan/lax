@@ -14,10 +14,11 @@
             <form novalidate>
                 <div class="container">
                     <div class="row">
+
                         <div class="col-md-4 offset-md-2 position-relative">
                             <md-field class="md-cont position-relative">
                                 <label for="first-name"
-                                :class="{ 'text-danger' : msg.firstName }"
+                                :class="{ 'text-danger' : validFirstname }"
                                 >* First Name</label>
                                 <md-input 
                                     name="first-name" 
@@ -27,15 +28,14 @@
                                     :disabled="sending"
                                     v-model="firstName"
                                 />
-                                <span v-if="msg.firstName" class="text-danger">{{msg.firstName}}</span>
-<!--                                <span class="md-error" v-if="!$v.form.firstName.required">The first name is required</span>-->
-<!--                                <span class="md-error" v-else-if="!$v.form.firstName.minlength">Invalid first name</span>-->
+                                <span v-if="validFirstname" class="text-danger">Required</span>
                             </md-field>
                         </div>
+
                         <div class="col-md-4">
                             <md-field class="md-cont position-relative">
                                 <label for="last-name" 
-                                :class="{ 'text-danger' : msg.lastName }"
+                                :class="{ 'text-danger' : validLastname }"
                                 >* Last Name</label>
                                 <md-input 
                                     name="last-name" 
@@ -45,15 +45,14 @@
                                     :disabled="sending" 
                                     v-model="lastName"
                                 />
-                                <span v-if="msg.lastName" class="text-danger">{{msg.lastName}}</span>
-<!--                                <span class="md-error" v-if="!$v.form.firstName.required">The first name is required</span>-->
-<!--                                <span class="md-error" v-else-if="!$v.form.firstName.minlength">Invalid first name</span>-->
+                                <span v-if="validLastname" class="text-danger">Required</span>
                             </md-field>
                         </div>
+
                         <div class="col-md-8 offset-md-2">
                             <md-field class="md-cont position-relative">
                                 <label 
-                                    for="email" :class="{ 'text-danger' : msg.email }" >
+                                    for="email" :class="{ 'text-danger' : validEmail }" >
                                     * Email Address
                                 </label>
                                 <md-input 
@@ -65,9 +64,10 @@
                                     :disabled="sending" 
                                     v-model="email"
                                 />
-                                <span v-if="msg.email" class="text-danger">{{msg.email}}</span>
+                                <span v-if="validEmail" class="text-danger">Required</span>
                             </md-field>
                         </div>
+
                         <div class="col-md-4 offset-md-2">
                             <md-field class="md-cont position-relative">
                                 <div class="validation-box">
@@ -75,21 +75,20 @@
                                     <div class="validation-texts">
                                         <ul class="pl-0">
                                             <li 
-                                                :class="{ 'text-danger' : msg.password }">8 or more characters</li>
+                                                :class="{ 'text-danger' : p_length }">8 or more characters</li>
                                             <li
-                                                :class="{ 'text-danger' : msg.pswd_letters }">
+                                                :class="{ 'text-danger' : p_low_up }">
                                                 Upper & lowercase letters
                                             </li>
                                             <li 
-                                                :class="{'text-danger' : msg.pswd_number}">
+                                                :class="{'text-danger' : p_number}">
                                                 At least one number
                                             </li>
                                         </ul>
                                     </div>
                                 </div>
                                 <label for="password"
-                                    :class="{ 'text-danger' : msg.password }"
-                                >* Password</label>
+                                    :class="{ 'text-danger' : finalPswd }"> * Password</label>
                                 <md-input 
                                     type="password" 
                                     name="password" 
@@ -99,26 +98,25 @@
                                     :disabled="sending" 
                                     v-model="password"
                                 />
-                                <span v-if="msg.password" class="text-danger mr-35">{{msg.password}}</span>
-<!--                                <span class="md-error" v-if="!$v.form.firstName.required">The first name is required</span>-->
-<!--                                <span class="md-error" v-else-if="!$v.form.firstName.minlength">Invalid first name</span>-->
+                                <span v-if="finalPswd" class="text-danger mr-35">Required</span>
                             </md-field>
                         </div>
+
                         <div class="col-md-4">
                             <md-field class="md-cont position-relative">
                                 <label for="phone"
-                                    :class="{ 'text-danger' : msg.phone }"
+                                    :class="{ 'text-danger' : validNumber }"
                                 >* Phone Number</label>
                                 <md-input 
                                     name="number" 
-                                    type="number"
                                     class="form-md" 
                                     id="phone" 
                                     autocomplete="given-name" 
                                     :disabled="sending"
                                     v-model="phone"
+                                    pattern="\d*" maxlength="10"
                                     />
-                                   <span v-if="msg.phone" class="text-danger">{{msg.phone}}</span>
+                                   <span v-if="validNumber" class="text-danger">Required</span>
                             </md-field>
                         </div>
 
@@ -126,7 +124,6 @@
                     <div class="row">
                         <div class="col-md-8 offset-md-2 mt-5">
                             <div class="cont d-flex flex-md-row justify-content-end align-items-center">
-                                
                                 <div class="right-part mt-4 mt-md-0">
                                     <SubmitButton title="See Instant Price" :disabled='isDisable'/>
                                 </div>
@@ -156,16 +153,7 @@
 <script>
     import Back from "../mixed/Back";
     import SubmitButton from "../mixed/SubmitButton";
-
-    // import { validationMixin } from 'vuelidate'
-    // import {
-    //     required,
-    //     email,
-    //     minLength,
-    //     maxLength
-    // } from 'vuelidate/lib/validators'
-    
-    
+   
     export default {
         name: "RequestForm",
         components: {SubmitButton, Back},
@@ -174,92 +162,96 @@
             found: "",
             accept: false,
 
+            isDisable: false,
+
             firstName: '',
             lastName: '',
             email: '',
             password: '',
             phone: '',
 
-            msg: [],
+            finalPswd: false,
+            p_length: false,
+            p_low_up: false,
+            p_number: false,
+
+            validEmail: false,
+            validFirstname: false,
+            validLastname: false,
+            validNumber: false,
         }),
         watch: {
-            email(value){
-                //this.email = value
-                this.validateEmail(value)
-            },
-            firstName(value){
-                if(value.length <= 3) {
-                    this.msg['firstName'] = 'Required'
+            firstName(value) {
+                if(value.length > 3) {
+                    this.validFirstname = false
                 }else {
-                    this.msg = this.msg.splice(this.msg.indexOf('firstName'), 1);
+                    this.validFirstname = true
                 }
             },
             lastName(value) {
-                if(value.length <= 3) {
-                    this.msg['lastName'] = 'Required'
+                if(value.length > 3) {
+                    this.validLastname = false
                 }else {
-                   this.msg = this.msg.splice(this.msg.indexOf('lastName'), 1);
+                    this.validLastname = true
                 }
+            },
+            email(value) {
+                const reg = /[^@]+@[^@]+\.[^@]+/;
+                if (reg.test(value)) {
+                    this.validEmail = false
+                }else{
+                    this.validEmail = true
+                } 
             },
             password(value) {
 
-                if(value.length < 8) {
-                    this.msg['password'] = 'Required'
-                }
-                else {
-                    this.msg = this.msg.splice(this.msg.indexOf('password'), 1);
-                }
-
                 let number = this.hasNumbers(value)
-                if(number) {
-                     this.msg = this.msg.splice(this.msg.indexOf('pswd_number'), 1);
-                }else {
-                   this.msg['pswd_number'] = 'false'
-                   this.msg['password'] = 'Required'
-                }
-
-
                 let lower = this.hasLowercase(value)
                 let upper = this.hasUppercase(value)
 
+                if(number) {
+                    this.p_number = false
+                } else {
+                    this.p_number = true
+                }
+
                 if(lower && upper) {
-                    this.msg = this.msg.splice(this.msg.indexOf('pswd_letters'), 1);
+                    this.p_low_up = false
+                } else {
+                    this.p_low_up = true
+                }
+
+                if(value.length >= 8) {
+                    this.p_length = false
                 }else {
-                   this.msg['pswd_letters'] = 'false'
-                   this.msg['password'] = 'Required'
+                    this.p_length = true
+                }
+
+                if(number && lower && upper & value.length >= 8) {
+                    this.finalPswd = false
+                }else {
+                    this.finalPswd = true
                 }
             },
             phone(value) {
                 let phone = this.validateMobileNumber(value)
                 if(phone) {
-                    this.msg = this.msg.splice(this.msg.indexOf('phone'), 1);
+                    this.validNumber = false
                 }else {
-                    this.msg['phone'] = 'Required'
+                    this.validNumber = true
                 }
-                console.log(this.msg)
             },
-         //   accept(value) {
-                //if(value) {
-              //       if( this.msg['firstName'] == '' && 
-              //          this.msg['lastName'] == '' &&  
-              //          this.msg['email'] == '' &&
-              //          this.msg['password'] == '' &&
-              //          this.msg['phone'] == '' &&
-               //         this.accept ) {
-               //            this.finalValidate = true
-               //     }
-           //     }
-          //  }
+            accept() {
+                if( this.validFirstname && this.validLastname && 
+                    this.validEmail && this.finalPswd && this.validNumber
+                && this.accept ) {
+                    this.isDisable = false
+                } else {
+                    this.isDisable = true
+                }
+            }
         },
         methods: {
-            validateEmail(value){
-                const reg = /[^@]+@[^@]+\.[^@]+/;
-                if (reg.test(value)) {
-                    this.msg = this.msg.splice(this.msg.indexOf('email'), 1);
-                }else{
-                    this.msg['email'] = 'Required'
-                } 
-            },
             hasNumbers(value){
                 var regex = /\d/g;
                 return regex.test(value);
@@ -304,24 +296,6 @@
                 this.$refs.touch.classList.remove("block");
             },
         },
-        computed: {
-            isDisable() {
-                if( 
-                   // this.msg['firstName'] == '' && 
-                  //  this.msg['lastName'] == '' &&  
-                   // this.msg['email'] == '' &&
-                    //this.msg['password'] == '' &&
-                    //this.msg['pswd_number'] == '' &&
-                    //this.msg['pswd_letters'] == '' &&
-                    //this.msg['phone'] == '' &&
-                    this.accept & this.msg.length == 0
-                ){
-                    return true
-                } else {
-                    return false
-                }
-            }
-        }
     }
 </script>
 

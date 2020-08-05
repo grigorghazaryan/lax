@@ -13,7 +13,7 @@
             </div>
            
             
-            <h5 class="service-title text-center" :class="[img ? 'mt-35' : '']" >{{ title}}</h5>
+            <h5 class="service-title text-center mt-35 mb-17" >{{ title}}</h5>
             <p v-if="text" class="text-center service-text">{{ text }}</p>
             <div class="blue-over-overlay align-items-center justify-content-center">
                 <p class="mb-0 blue-over d-flex justify-content-center align-items-center blue-over-p">
@@ -79,6 +79,10 @@
             width: 50%;
             transform: rotate(-45deg);
         }
+    }
+
+    .mb-17 {
+        margin-bottom: 17px !important;
     }
 
     .cont{

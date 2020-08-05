@@ -1,5 +1,5 @@
 <template>
-    <footer class="pt-5" v-if="false">
+    <footer class="pt-5">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">

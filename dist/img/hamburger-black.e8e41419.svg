@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <defs>
+    <style>
+      .cls-1, .cls-2, .cls-3 {
+        fill: none;
+      }
+
+      .cls-2 {
+        stroke: #4a4a4a;
+      }
+
+      .cls-2, .cls-3 {
+        stroke-linecap: round;
+        stroke-width: 3px;
+      }
+
+      .cls-3 {
+        stroke: #45afdb;
+      }
+    </style>
+  </defs>
+  <g id="Menu_02" data-name="Menu 02" transform="translate(-327 -7)">
+    <rect id="Rectangle_1574" data-name="Rectangle 1574" class="cls-1" width="32" height="32" transform="translate(327 7)"/>
+    <g id="Group_9302" data-name="Group 9302" transform="translate(-4.5 1)">
+      <line id="Line_568" data-name="Line 568" class="cls-2" x2="14" transform="translate(343.5 19)"/>
+      <line id="Line_569" data-name="Line 569" class="cls-3" x2="20" transform="translate(337.5 25)"/>
+    </g>
+  </g>
+</svg>

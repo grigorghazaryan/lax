@@ -53,6 +53,14 @@ Vue.use(VueRouter)
           // this generates a separate chunk (req_form.[hash].js) for this route
           // which is lazy-loaded when the route is visited.
           component: () => import(/* webpackChunkName: "req_form" */ '../components/signIn/SignIn')
+        },
+        {
+          path: '/forgot-password',
+          name: 'Forgot password',
+          // route level code-splitting
+          // this generates a separate chunk (req_form.[hash].js) for this route
+          // which is lazy-loaded when the route is visited.
+          component: () => import(/* webpackChunkName: "req_form" */ '../components/forgotPassword/ForgotPassword')
         }
       ]
     },
