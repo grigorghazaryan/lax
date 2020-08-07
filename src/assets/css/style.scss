@@ -103,6 +103,9 @@ $red: #C90058;
 
 .show{
   border-bottom: 3px solid #31569b;
+  @media (max-width: 767px) {
+    border-color: transparent;
+  }
 }
 
 @media (min-width: 1200px) {
@@ -130,6 +133,19 @@ $red: #C90058;
   }
 }
 
+
+/* Change Autocomplete styles in Chrome*/
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus {
+  border: 1px solid rgb(255, 255, 255);
+  -webkit-text-fill-color: rgb(255, 255, 255);
+  -webkit-box-shadow: 0 0 0px 1000px rgb(255, 255, 255) inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
 
 
 @media screen and (max-width: 1366px) and (min-width: 992px) {

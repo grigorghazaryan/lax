@@ -35,6 +35,7 @@
     }
     .title {
         margin-bottom: 10;
+        font-size: 32px;
     }
     .subtitle {
         margin-bottom: 20px;
@@ -47,7 +48,7 @@
     }
     .services{
         background: #FCF9F9;
-        padding-top: 80px;
+        padding-top: 100px;
         padding-bottom: 80px;
         box-shadow: 4px 0px 8px #4A4A4A80;
     }

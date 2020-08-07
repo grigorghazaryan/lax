@@ -24,7 +24,7 @@
                             name="full-name" 
                             class="form-md" 
                             id="full-name" 
-                            autocomplete="given-name" 
+                            autocomplete="off"
                             v-model="fullName"
                         />
                         <span v-if="validFullname" class="text-danger">Required</span>
@@ -100,7 +100,7 @@
                             name="full-name" 
                             class="form-md" 
                             id="full-name" 
-                            autocomplete="given-name" 
+                            autocomplete="off"
                             v-model="fullName"
                         />
                         <span v-if="validFullname" class="text-danger">Required</span>
@@ -118,7 +118,7 @@
                             name="full-name" 
                             class="form-md" 
                             id="full-name" 
-                            autocomplete="given-name" 
+                            autocomplete="off"
                             v-model="email"
                         />
                         <span v-if="validEmail" class="text-danger">Required</span>
@@ -168,7 +168,7 @@
                             name="full-name" 
                             class="form-md" 
                             id="full-name" 
-                            autocomplete="given-name" 
+                           autocomplete="off"
                             v-model="phone"
                             pattern="\d*" maxlength="10"
                         />
@@ -192,7 +192,7 @@
                             <div class="soc-title">or use social media</div>
                         </div>
                         <div class="sign-button-parent">
-                            <button>Sign In</button>
+                            <button>Sign Up</button>
                         </div>
                     </div>
 
@@ -433,7 +433,7 @@ export default {
                 background-position: 1px -10px;
 
                 @media screen and (max-width: 768px) and (min-width: 300px) {
-                    height: 300px;
+                    height: 315px;
                     flex: initial;
                 }
 
@@ -841,7 +841,7 @@ export default {
                         margin-bottom: 25px;
                     }
                     @media screen and (max-width: 768px) and (min-width: 300px) {
-                        font-size: 20px;
+                        font-size: 16px;
                         opacity: .7;
                         text-align: right;
                     }

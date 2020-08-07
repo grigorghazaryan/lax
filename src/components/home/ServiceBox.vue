@@ -7,13 +7,13 @@
             @click="selectBox"
             :style="{'height': height}" >
 
-            <div class="block-rotate" v-if="img">
+            <div class="block-rotate" v-if="img" :class="{ 'mb-50' : img }">
                 <img :src="require(`@/assets/home/${img}`)" ref="primary" class="img-fluid primary-image" :alt="title">
                 <img v-if="gif" :src="require(`@/assets/home/${gif}`)" ref="gif" class="img-fluid gif" :alt="title">
             </div>
            
-            
-            <h5 class="service-title text-center mt-35 mb-17" >{{ title}}</h5>
+            <h5 class="service-title text-center"> {{ title}} </h5>
+
             <p v-if="text" class="text-center service-text">{{ text }}</p>
             <div class="blue-over-overlay align-items-center justify-content-center">
                 <p class="mb-0 blue-over d-flex justify-content-center align-items-center blue-over-p">
@@ -101,7 +101,7 @@
         padding: 40px 17px 17px 20px;
         box-shadow: 0px 2px 20px #221F1F33;
         background: white;
-        height: 340px;
+        height: 360px;
         overflow: hidden;
         border: 2px solid transparent;
         box-sizing: border-box;
@@ -126,8 +126,11 @@
     .service-title, .service-text {
         color: #4A4A4A;
     }
-    .mt-35 {
-        margin-top: 35px;
+    .mt-50 {
+        margin-top: 50px;
+    }
+    .mb-50 {
+        margin-bottom: 50px;
     }
     .service-title {
         margin-bottom: 0;

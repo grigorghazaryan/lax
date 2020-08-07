@@ -37,10 +37,19 @@
                      <div class="col-12 position-relative">
                         <h4 class="title-small text-center">Common Repairs</h4> 
                     </div>
+                </div>
+                <div class="row justify-content-center mb-20">
                     <ServiceBox
-                        v-for="(index) in 6" :key="index" 
+                        v-for="(index) in 2" :key="index" 
                         title="Synthetic Oil Change"  
-                        height="220px" class="sb" img="oil.png" 
+                        height="245px" class="sb" img="oil.png" 
+                    ></ServiceBox>
+                </div>
+                <div class="row justify-content-center">
+                    <ServiceBox
+                        v-for="(index) in 2" :key="index" 
+                        title="Synthetic Oil Change"  
+                        height="245px" class="sb" img="oil.png" 
                     ></ServiceBox>
                 </div>
             </div>
@@ -99,6 +108,10 @@
 
 <style scoped lang="scss">
     @import 'src/assets/css/style.scss';
+
+    .mb-20 {
+        margin-bottom: 20px;
+    }
 
     .quote{
         padding-top: 50px;

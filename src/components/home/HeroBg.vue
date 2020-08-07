@@ -52,6 +52,11 @@
 
 <style scoped lang="scss">
     @import "../../assets/css/style";
+    
+    hr {
+        border-top: 1px solid #909090;
+    }
+
     .text-cont{
         width: 100%;
         align-items: center;
@@ -99,11 +104,11 @@
     .below-title{
         font-family: MontBold, sans-serif;
         color: #31569C;
-        font-size: 20px;
+        font-size: 24px;
         text-transform: capitalize;
     }
     .below-text{
-        font-size: 14px;
+        font-size: 16px;
         color: #31569C;
         font-family: PoppinsRegular, sans-serif;
     }
