@@ -85,4 +85,7 @@
             color-stop(0.72, rgb(73,125,189)),
             color-stop(0.86, rgb(28,58,148)));
   }
+  .blue-background {
+    background-color: #D8E4FB;
+  }
 </style>

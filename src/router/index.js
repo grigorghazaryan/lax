@@ -18,52 +18,68 @@ Vue.use(VueRouter)
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "repair" */ '../views/Repair')
   },
-    {
-      path: '/get-quote',
-      component: () => import(/* webpackChunkName: "quote" */ '../views/GetQuote'),
-      children :[
-        {
-          path: '',
-          name: 'Get a Quote',
-          // route level code-splitting
-          // this generates a separate chunk (quote.[hash].js) for this route
-          // which is lazy-loaded when the route is visited.
-          component: () => import(/* webpackChunkName: "quote" */ '../components/quotes/ChooseServices'),
-        },
-        {
-          path: 'service-summary',
-          name: 'Service Summary',
-          // route level code-splitting
-          // this generates a separate chunk (summary.[hash].js) for this route
-          // which is lazy-loaded when the route is visited.
-          component: () => import(/* webpackChunkName: "summary" */ '../components/quotes/ServiceSummary')
-        },
-        {
-          path: 'request-form',
-          name: 'Your Request',
-          // route level code-splitting
-          // this generates a separate chunk (req_form.[hash].js) for this route
-          // which is lazy-loaded when the route is visited.
-          component: () => import(/* webpackChunkName: "req_form" */ '../components/quotes/RequestForm')
-        },
-        {
-          path: '/sign-in',
-          name: 'Sign in',
-          // route level code-splitting
-          // this generates a separate chunk (req_form.[hash].js) for this route
-          // which is lazy-loaded when the route is visited.
-          component: () => import(/* webpackChunkName: "req_form" */ '../components/signIn/SignIn')
-        },
-        {
-          path: '/forgot-password',
-          name: 'Forgot password',
-          // route level code-splitting
-          // this generates a separate chunk (req_form.[hash].js) for this route
-          // which is lazy-loaded when the route is visited.
-          component: () => import(/* webpackChunkName: "req_form" */ '../components/forgotPassword/ForgotPassword')
-        }
-      ]
-    },
+  {
+    path: '/get-quote',
+    component: () => import(/* webpackChunkName: "quote" */ '../views/GetQuote'),
+    children :[
+      {
+        path: '',
+        name: 'Get a Quote',
+        // route level code-splitting
+        // this generates a separate chunk (quote.[hash].js) for this route
+        // which is lazy-loaded when the route is visited.
+        component: () => import(/* webpackChunkName: "quote" */ '../components/quotes/ChooseServices'),
+      },
+      {
+        path: 'service-summary',
+        name: 'Service Summary',
+        // route level code-splitting
+        // this generates a separate chunk (summary.[hash].js) for this route
+        // which is lazy-loaded when the route is visited.
+        component: () => import(/* webpackChunkName: "summary" */ '../components/quotes/ServiceSummary')
+      },
+      {
+        path: 'request-form',
+        name: 'Your Request',
+        // route level code-splitting
+        // this generates a separate chunk (req_form.[hash].js) for this route
+        // which is lazy-loaded when the route is visited.
+        component: () => import(/* webpackChunkName: "req_form" */ '../components/quotes/RequestForm')
+      },
+      {
+        path: 'your-estimate',
+        name: 'Service Summary',
+        // route level code-splitting
+        // this generates a separate chunk (req_form.[hash].js) for this route
+        // which is lazy-loaded when the route is visited.
+        component: () => import(/* webpackChunkName: "req_form" */ '../components/quotes/YourEstimate')
+      },
+      {
+        path: 'schedule-appointment',
+        name: 'Schedule Appointment',
+        // route level code-splitting
+        // this generates a separate chunk (req_form.[hash].js) for this route
+        // which is lazy-loaded when the route is visited.
+        component: () => import(/* webpackChunkName: "req_form" */ '../components/quotes/ScheduleAppointment')
+      },
+      {
+        path: '/sign-in',
+        name: 'Sign in',
+        // route level code-splitting
+        // this generates a separate chunk (req_form.[hash].js) for this route
+        // which is lazy-loaded when the route is visited.
+        component: () => import(/* webpackChunkName: "req_form" */ '../components/signIn/SignIn')
+      },
+      {
+        path: '/forgot-password',
+        name: 'Forgot password',
+        // route level code-splitting
+        // this generates a separate chunk (req_form.[hash].js) for this route
+        // which is lazy-loaded when the route is visited.
+        component: () => import(/* webpackChunkName: "req_form" */ '../components/forgotPassword/ForgotPassword')
+      }
+    ]
+  },
 ]
 
 const router = new VueRouter({

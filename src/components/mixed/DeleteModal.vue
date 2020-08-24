@@ -32,7 +32,7 @@
 </script>
 
 <style scoped lang="scss">
-    @import "src/assets/css/style";
+@import "src/assets/css/style";
 
     .lay {
         position: fixed;

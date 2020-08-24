@@ -61,9 +61,7 @@
             showModal: false,
         }),
         methods: {
-            a(){
-                console.log("|")
-            }
+           
         },
 
         components: {CircleButton, DeleteModal, ServiceBox, Back}
@@ -96,6 +94,7 @@
     .selected-services-container{
         padding-top: 50px;
     }
+
     .add-service{
         color: $blue;
         font-family: MontSemiBold, sans-serif;
@@ -104,10 +103,12 @@
         align-items: center;
         float: right;
     }
+
     .add-service span{
         font-size: 24px;
         margin-right: 5px;
     }
+    
     @media (min-width: 1200px) {
         .chosen-boxes{
             margin-bottom: 40px;

@@ -1,5 +1,7 @@
 <template>
-    <button :class="className" 
+    <button 
+        @click="goToEstimate"
+        :class="className" 
         :style="{'background': colors || bg}"
         :disabled="!disabled"
          class="circled-button">
@@ -13,7 +15,12 @@
         props: ['title', 'color', 'colors', 'className', 'disabled'],
         data: () => ({
             bg: "#31569C"
-        })
+        }),
+        methods: {
+            goToEstimate() {
+               // this.$router.push('/get-quote/your-estimate')
+            }
+        }
     }
 </script>
 

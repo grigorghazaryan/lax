@@ -176,7 +176,7 @@
         margin-bottom: 0;
         font-size: 16px;
     }
-    .blue-over-overlay{
+    .blue-over-overlay {
         background: $lblue;
         position: absolute;
         height: 100%;

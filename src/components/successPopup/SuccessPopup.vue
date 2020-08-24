@@ -147,8 +147,6 @@ export default {
                     }
                 }
 
-
-
                .button-parent {
                    margin-top: 20px;
                }

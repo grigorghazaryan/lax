@@ -103,7 +103,7 @@
 
     export default {
         name: "RepairForm",
-        components: {CircleButton, Back},
+        components: { CircleButton, Back },
         data: () => ({
             year: "",
             years: [],

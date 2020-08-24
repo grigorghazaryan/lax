@@ -11,7 +11,7 @@
             </div>
         </div>
         <div class="main-form">
-            <form novalidate>
+            <!-- <form novalidate> -->
                 <div class="container">
                     <div class="row">
 
@@ -145,7 +145,7 @@
                         </div>
                     </div>
                 </div>
-            </form>
+            <!-- </form> -->
         </div>
     </div>
 </template>
@@ -309,7 +309,7 @@
     }
 
     .form-section {
-        padding: 40px 0;
+        padding: 85px 0;
     }
     .form{
         padding: 80px 0;
