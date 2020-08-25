@@ -23,6 +23,7 @@
                                 id="zip" 
                                 autocomplete="off"
                                 v-model="zip"
+                                pattern="\d*" maxlength="5"
                             />
                         </md-field>
                     </div>
@@ -42,8 +43,11 @@
                 <div class="row justify-content-center">
                     <div class="col-md-8">
                         <div class="form-group">
-                            <div class="dropdown-header" ref="address" 
-                                @click="toggleDropdown('address')" style="z-index: 1">
+                            <div class="dropdown-header" 
+                                :class="{'disabled': zip.length < 5 }"
+                                ref="address" 
+                                @click="toggleDropdown('address')" style="z-index: 1"
+                            >
 
                                 <p class="text-left mb-0" >{{ address || "Address" }}</p>
 
@@ -72,6 +76,9 @@
                             <div class="deliver-box__title">Deliver to your driveway</div>
                             <div class="deliver-box__subtitle">Simple and convenient featuring 'No- Contact Car Repair</div>
                             <input type="radio" name="address" value="1" v-model="radio">
+                            <div class="on-hover">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="393.001" height="223.023" viewBox="0 0 393.001 223.023"><defs></defs><g transform="translate(-114.997 -601)"><g transform="translate(114.997 588)"><path class="a" d="M0,223.023V20.475H57.512C50.8,11.824,39.734,3.547,21.5.262,55.555-1.963,76.272,10.42,87.284,20.475H393V223.023Z" transform="translate(393.001 236.023) rotate(180)"/></g><g transform="translate(161.999 618.744)"><g transform="translate(0 14)"><text class="b" transform="translate(36 17.217)"><tspan x="0" y="0">Activate only for </tspan><tspan class="c" y="0">5 mile radius</tspan><tspan x="0" y="25">from our body shop address.</tspan></text><g class="d" transform="translate(0 14.217)"><path class="e" d="M10,0A10,10,0,1,0,20,10,10.011,10.011,0,0,0,10,0Zm.65,15.933c-.475.079-1.42.277-1.9.317a1.17,1.17,0,0,1-1.024-.533,1.25,1.25,0,0,1-.151-1.144l1.89-5.2H7.5A2.349,2.349,0,0,1,9.35,7.19a7.236,7.236,0,0,1,1.9-.315,1.507,1.507,0,0,1,1.024.533,1.25,1.25,0,0,1,.151,1.144l-1.89,5.2H12.5a2.213,2.213,0,0,1-1.849,2.183Zm.6-9.683A1.25,1.25,0,1,1,12.5,5a1.25,1.25,0,0,1-1.25,1.25Z"/></g></g><g transform="translate(2 78)"><text class="b" transform="translate(36 17.217)"><tspan x="0" y="0">For delivery to address we need </tspan><tspan x="0" y="25">to have a </tspan><tspan class="c" y="25">minimum $75 for </tspan><tspan class="c"><tspan x="0" y="50">Contact-less service.</tspan></tspan></text><g class="d" transform="translate(0 27.217)"><path class="e" d="M10,0A10,10,0,1,0,20,10,10.011,10.011,0,0,0,10,0Zm.65,15.933c-.475.079-1.42.277-1.9.317a1.17,1.17,0,0,1-1.024-.533,1.25,1.25,0,0,1-.151-1.144l1.89-5.2H7.5A2.349,2.349,0,0,1,9.35,7.19a7.236,7.236,0,0,1,1.9-.315,1.507,1.507,0,0,1,1.024.533,1.25,1.25,0,0,1,.151,1.144l-1.89,5.2H12.5a2.213,2.213,0,0,1-1.849,2.183Zm.6-9.683A1.25,1.25,0,1,1,12.5,5a1.25,1.25,0,0,1-1.25,1.25Z"/></g></g></g></g></svg>
+                            </div>
                         </label>
                     </div>
                     <div class="col-md-6">
@@ -92,7 +99,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <Button title="Continue" url="/#####"/>
+                        <Button title="Continue" :disabled='!address' url="/get-quote/arrival"/>
                     </div>
                 </div>
             </div>
@@ -149,11 +156,6 @@ export default {
             selectBox() {
                 this.selected = !this.selected
             }
-    },
-    watch: {
-        yourDel() {
-            console.log(this.yourDel)
-        }
     }
 }
 </script>
@@ -216,6 +218,11 @@ export default {
 
     &:hover {
         border-color: #45afdb;
+
+        .on-hover {
+            visibility: visible;
+            opacity: 1;
+        }
     }
 
     .deliver-box__title {
@@ -224,6 +231,32 @@ export default {
     .deliver-box__subtitle {
         font-family: PoppinsRegular, sans-serif;
     }
+
+    .on-hover {
+            visibility: hidden;
+            opacity: 0;
+            position: absolute;
+            bottom: 108%;
+            right: 65%;
+            transition: .3s;
+
+            svg {
+                .a{fill:#31569c;}
+                .b,.e{fill:#fff;}
+                .b{
+                    font-size:16px;
+                    font-weight:300;
+                    letter-spacing:0.01em;
+                }
+                .c{
+                    font-family: PoppinsRegular, sans-serif;
+                }
+                .d{opacity:0.5;}
+            }
+            @media (max-width: 768px) { 
+                right: -15px;
+            }
+        }
 }
 
 .fixed-button-wrapper {
@@ -244,5 +277,19 @@ export default {
         margin-top: 20px;
     }
 }
+
+    .disabled {
+        background: #f0f0f0;
+        border-color: #b9b9b9;
+        pointer-events: none;
+
+        p {
+            color: #b9b9b9;
+        }
+
+        &::placeholder {
+           color: #b9b9b9 !important;
+        }
+    }
 
 </style>

@@ -18,7 +18,7 @@
                             <div class="dropdown-body">
                                 <p class="mb-0 text-left drop-element" 
                                 :class="{'selected': year == y}" v-for="y in years" :key="y"
-                                 @click="choose('year', y)">{{ y }}</p>
+                                @click="choose('year', y)">{{ y }}</p>
                             </div>
                         </div>
                     </div>

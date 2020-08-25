@@ -1,5 +1,5 @@
 <template>
-    <router-link :to="url" class="circled-button">
+    <router-link :to="url" class="circled-button" :class="{ 'disabled' : disabled }">
          {{ title }} 
          <img v-if="img" :src="require('@/assets/mixed/' + img)" alt="Arrow">
     </router-link>
@@ -8,7 +8,7 @@
 <script>
     export default {
         name: "CircleButton",
-        props: ['title', 'url', 'img']
+        props: ['title', 'url', 'img', 'disabled']
     }
 </script>
 
@@ -35,12 +35,12 @@
         img {
             height: 18px;
         }
-
         
-    a.circled-button.disabled {
-        background: #f0f0f0;
-        border-color: #b9b9b9;
-        color: #b9b9b9 !important;
-    }
+        a.circled-button.disabled {
+            background: #f0f0f0 !important;
+            border-color: #b9b9b9;
+            color: rgb(255, 255, 255) !important;
+            pointer-events: none;
+        }
 
 </style>

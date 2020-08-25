@@ -63,6 +63,14 @@ Vue.use(VueRouter)
         component: () => import(/* webpackChunkName: "req_form" */ '../components/quotes/ScheduleAppointment')
       },
       {
+        path: 'arrival',
+        name: 'Schedule Appointment',
+        // route level code-splitting
+        // this generates a separate chunk (req_form.[hash].js) for this route
+        // which is lazy-loaded when the route is visited.
+        component: () => import(/* webpackChunkName: "req_form" */ '../components/quotes/Arrival')
+      },
+      {
         path: '/sign-in',
         name: 'Sign in',
         // route level code-splitting
