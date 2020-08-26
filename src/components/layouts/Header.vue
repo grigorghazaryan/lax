@@ -40,6 +40,8 @@
                     this.fixed = true
                 }else  if(route == '/forgot-password') {
                     this.header = 1;
+                }else  if(route == '/get-quote/confirmation') {
+                    this.header = 1;
                 }
                 else{
                     this.header = 3;
@@ -50,21 +52,25 @@
     }
 </script>
 
-<style>
+<style lang="scss" >
     .fixed-header {
         position: absolute;
         width: 100%;
         top: 0;
         left: 0;
     }
-    .navbar-nav li {
-        margin-right: 40px;
+    .navbar-nav {
+        li {
+            margin-right: 40px;
+        }
+        
     }
-    .nav-item a {
-        color: white!important;
-        font-family: PoppinsRegular, sans-serif;
-        text-decoration: none!important;
-        transition: .4s;
+    .nav-item  {
+        a {
+            color: white !important;
+            font-family: PoppinsRegular, sans-serif;
+            text-decoration: none !important;
+        }
     }
     #header{
         padding-top: 35px;

@@ -1,10 +1,14 @@
 <template>
     <div v-click-outside="hide" @click.stop="showPopup = !showPopup" class="call-appointment">
-        <div class="call-appointment__header">Call For Appointment</div>
-        <div class="call-appointment__phone-parent">
+        
+        <div v-if="!button" class="call-appointment__header">Call For Appointment</div>
+        <div v-if="!button" class="call-appointment__phone-parent">
             <svg xmlns="http://www.w3.org/2000/svg" width="20.18" height="20.222" viewBox="0 0 20.18 20.222"><defs></defs><g transform="translate(-0.539 0)"><g transform="translate(0.539 0)"><path class="a" d="M20.19,14.841l-2.822-2.822a1.877,1.877,0,0,0-3.124.706,1.921,1.921,0,0,1-2.217,1.209A8.7,8.7,0,0,1,6.785,8.693,1.827,1.827,0,0,1,7.994,6.476,1.877,1.877,0,0,0,8.7,3.351L5.878.529a2.013,2.013,0,0,0-2.721,0L1.242,2.444C-.673,4.46,1.443,9.8,6.18,14.539s10.079,6.954,12.095,4.939l1.915-1.915A2.013,2.013,0,0,0,20.19,14.841Z" transform="translate(-0.539 0)"/></g></g></svg>
             <div>(310) 523 - 1063</div>
         </div>
+
+        <button v-if="button" class="need-help-button">Need Help</button>
+
         <div v-if="showPopup" @click.stop class="appointment-popup-wrapper">
             <img src="../../assets/mixed/appointment-image.png" alt="appointment image">
 
@@ -19,6 +23,7 @@
                 <span>turn on sync</span> for both devices in settings.
             </div>
         </div>
+
     </div>
 </template>
 
@@ -28,6 +33,7 @@ import ClickOutside from 'vue-click-outside'
 
 export default {
     name: 'CallAppointment',
+    props: ['button'],
     data() {
         return {
             showPopup: false,
@@ -159,6 +165,26 @@ export default {
         height: 59%;
         top: 13%;
         left: 0;
+    }
+}
+
+.need-help-button {
+    width: 173px;
+    height: 54px;
+    background: #31569C;
+    color: #fff;
+    border-radius: 50px;
+    border: 1px solid transparent;
+    box-sizing: border-box;
+    font-family: MontBold, sans-serif;
+    transition: .3s;
+
+    &:hover {
+        background: #45AFDB;
+    }
+
+    &:focus {
+        outline: none;
     }
 }
 

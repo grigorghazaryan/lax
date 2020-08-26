@@ -125,7 +125,7 @@ export default {
 </script>
 
 
-<style lang="scss" scoped>
+<style lang="scss" scss>
 
 .your-estimate-section {
     padding: 85px 0 0;
@@ -167,8 +167,6 @@ export default {
         font-size: 16px;
     }
 }
-
-
 
 .selected-car-wrapper {
     margin-top: 60px;
