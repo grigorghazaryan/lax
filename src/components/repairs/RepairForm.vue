@@ -228,6 +228,7 @@
             font-size: 16px;
         }
     }
+
     .title{
         font-size: 32px;
         color: #4A4A4A;
@@ -238,14 +239,17 @@
         color: #4A4A4A;
         font-family: PoppinsRegular, sans-serif;
     }
+    
     .title-text span{
         color: #31569C;
     }
+    
     .sub{
         font-size: 16px;
         padding: 10px 15px;
         display: inline-block;
     }
+
     @media (min-width: 1200px) {
         .sub{
             transform: translateX(-100%);

@@ -99,7 +99,7 @@
     }
     .box{
         padding: 40px 17px 17px 20px;
-        box-shadow: 0px 2px 20px #221F1F33;
+        box-shadow: 0px 2px 10px #221F1F26;
         background: white;
         height: 360px;
         overflow: hidden;

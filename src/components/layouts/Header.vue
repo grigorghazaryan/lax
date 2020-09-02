@@ -44,6 +44,12 @@
                     this.header = 1;
                 }else  if(route == '/blog') {
                     this.header = 1;
+                }else  if(route == '/garage') {
+                    this.header = 1;
+                }else  if(route == '/account') {
+                    this.header = 1;
+                }else  if(route == '/service-history') {
+                    this.header = 1;
                 }
                 else{
                     this.header = 3;

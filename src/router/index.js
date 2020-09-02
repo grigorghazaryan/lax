@@ -27,6 +27,30 @@ Vue.use(VueRouter)
     component: () => import('../views/Blog')
   },
   {
+    path: '/garage',
+    name: '',
+    // route level code-splitting
+    // this generates a separate chunk (repair.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import('../views/Garage')
+  },
+  {
+    path: '/account',
+    name: '',
+    // route level code-splitting
+    // this generates a separate chunk (repair.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import('../views/Account')
+  },
+  {
+    path: '/service-history',
+    name: '',
+    // route level code-splitting
+    // this generates a separate chunk (repair.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import('../views/ServiceHistory')
+  },
+  {
     path: '/get-quote',
     component: () => import(/* webpackChunkName: "quote" */ '../views/GetQuote'),
     children :[
