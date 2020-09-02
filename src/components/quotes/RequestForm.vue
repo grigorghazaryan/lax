@@ -129,7 +129,7 @@
                                 </div>
                             </div>
 
-                            <div class="checkbox-cont">
+                            <div class="checkbox-cont relative">
                                 <div class="d-flex align-items-center">
                                     <input type="checkbox" id="check" v-model="accept" class="d-inline check">
                                     <label for="check"  class="check-text mb-0">By accepting, I agree to LAX Auto 
