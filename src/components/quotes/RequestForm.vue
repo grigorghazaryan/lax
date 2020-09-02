@@ -129,7 +129,7 @@
                                 </div>
                             </div>
 
-                            <div class="checkbox-cont relative">
+                            <div class="checkbox-cont relative-checkbox-parent">
                                 <div class="d-flex align-items-center">
                                     <input type="checkbox" id="check" v-model="accept" class="d-inline check">
                                     <label for="check"  class="check-text mb-0">By accepting, I agree to LAX Auto 
@@ -301,6 +301,12 @@
 
 <style scoped lang="scss">
     @import "src/assets/css/style";
+
+    .relative-checkbox-parent {
+        position: relative;
+        width: 100%;
+        left: 0;
+    }
 
     .right-part {
         .circled-button {
