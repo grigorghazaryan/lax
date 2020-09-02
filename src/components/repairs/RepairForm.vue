@@ -5,8 +5,10 @@
             <div class="row">
                 <div class="col-12 position-relative">
                     <Back/>
-                    <h2 class="title text-center">What Do You Drive</h2>
-                    <p class="title-text text-center">Alternatively, <span>Enter the License Plate</span></p>
+                    <h2 class="title text-center">What Do You Drive?</h2>
+                    <p class="title-text text-center">
+                        Alternatively, <a href="#">Enter the License Plate</a>
+                    </p>
                 </div>
                 <div class="col-12">
 

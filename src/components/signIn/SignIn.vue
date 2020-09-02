@@ -19,7 +19,7 @@
                         </div>
                         <label for="full-name"
                             :class="{'text-danger' : validFullname}"
-                        >* Full Name</label>
+                        >* Username</label>
                         <md-input 
                             name="full-name" 
                             class="form-md" 
@@ -95,7 +95,7 @@
                         </div>
                         <label for="full-name"
                             :class="{'text-danger' : validFullname}"
-                        >* Full Name</label>
+                        >* Username</label>
                         <md-input 
                             name="full-name" 
                             class="form-md" 
@@ -624,7 +624,7 @@ export default {
                     }
 
                     .md-field {
-                        margin: 0;
+                        margin-bottom: 15px;
                     }
                 }
 
