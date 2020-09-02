@@ -42,6 +42,8 @@
                     this.header = 1;
                 }else  if(route == '/get-quote/confirmation') {
                     this.header = 1;
+                }else  if(route == '/blog') {
+                    this.header = 1;
                 }
                 else{
                     this.header = 3;

@@ -1,7 +1,7 @@
 <template>
     <div class="confirmation">
         <DeleteModal  @close="showModal = false" v-if="showModal"/>
-        <div v-if="!step1" class="proceed-to-payment">
+        <div v-if="step2" class="proceed-to-payment">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 left-sec">
@@ -16,12 +16,20 @@
         <div class="container">
 
             <div class="row">
-                <div class="col-12 position-relative" :class="{ 'mt-85' : step1 }">
+                <div class="col-12 position-relative" :class="{ 'mt-85' : !step2 }">
                     <Back/>
-                    <h2 class="title text-center">Your Estimate is Almost Ready</h2>
-                    <p class="title-text text-center mb-5">
-                       We’ve locked in your guaranteed price and <br>
-                       are confirming the availability of our state of the art repair shop on wheels.
+                    <h2 class="title text-center">
+                        {{ 
+                            step1 ? 'Your Estimate is Almost Ready' : 
+                            step2 ? 'Your Estimate is Ready' : 
+                            'Payment'
+                        }}
+                    </h2>
+                    <p class="title-text text-center mb-5" v-if="step1 || step2">
+                        We’ve locked in your guaranteed price and <br> are confirming the availability of our state of the art repair shop on wheels.
+                    </p>
+                    <p class="title-text text-center mb-5" v-else>
+                       Choose a payment option and fill out <br> the appropriate information
                     </p>
 
                     <CallAppointment button="true"/>
@@ -42,7 +50,7 @@
                     </div>
                     <div class="col-md-3 text-center">
                         <div class="wizard-item">
-                            <div class="circle" :class="{ 'active' : !step1 }">2</div>
+                            <div class="circle" :class="{ 'active' : step2 || step3 }">2</div>
                             <div class="text right-c">Confirm Appointment</div>
                         </div>
                     </div>
@@ -51,7 +59,7 @@
                     </div>
                     <div class="col-md-2 text-center">
                         <div class="wizard-item">
-                            <div class="circle">3</div>
+                            <div class="circle" :class="{ 'active' : step3 }">3</div>
                             <div class="text">Checkout</div>
                         </div>
                     </div>
@@ -196,6 +204,182 @@
             </div>
         </div>
 
+        <div v-if="step2">
+            <div class="step-2-parent">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-md-10">
+                            <div class="row step-2__list-parent">
+                                <div class="col-md-12 step-2__list-item">
+                                    <div class="row">
+                                        <div class="col-md-3 d-flex">
+                                            <img src="https://blog.consumerguide.com/wp-content/uploads/sites/2/2013/06/acura-logo.gif" alt="">
+                                            <div class="bold black">Acura MDX</div>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <div class="normal gray">2018 - 3.0L V6 Hybrid - 15,200 miles</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 step-2__list-item">
+                                    <div class="row">
+                                        <div class="col-md-3 d-flex">
+                                            <div class="bold black">Requested Times</div>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <div class="normal gray">Monday - 30 Jun - 9:00 AM</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 step-2__list-item">
+                                    <div class="row">
+                                        <div class="col-md-3 d-flex">
+                                            <div class="bold black">Repair Address</div>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <div class="normal gray">104 North Belmont Street, Glendale</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 step-2__list-item">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="bold black mb-2">Services</div>
+                                        </div>
+
+                                        <div class="col-md-6 text-left mb-1">
+                                            <div class="normal gray">Oil Change</div>
+                                        </div>
+                                        <div class="col-md-6 text-right mb-1">
+                                            <div class="bold black">$90.00</div>
+                                        </div>
+
+                                        <div class="col-md-6 text-left mb-1">
+                                            <div class="normal gray">Replace Battery</div>
+                                        </div>
+                                        <div class="col-md-6 text-right mb-1">
+                                            <div class="bold black">$25.00</div>
+                                        </div>
+
+                                        <div class="col-md-6 text-left mb-1">
+                                            <div class="normal gray">Replace Spark Plugs</div>
+                                        </div>
+                                        <div class="col-md-6 text-right mb-1">
+                                             <div class="bold black">$5.00</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 step-2__list-item">
+                                    <div class="row">
+                                        <div class="col-md-6 text-left">
+                                            <div> <span class="bold black">Tax</span> (10.25% of total Service amount)</div>
+                                        </div> 
+                                        <div class="col-md-6 text-right">
+                                            <div class="bold black">$4.00</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 step-2__list-item">
+                                    <div class="row">
+                                        <div class="col-md-6 text-left">
+                                            <div class="bold blue">Total</div>
+                                        </div>
+                                        <div class="col-md-6 text-right">
+                                             <div class="bold blue">$144.00</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-10 text-right">
+                            <button class="next-button" 
+                            @click="goToCheckout">
+                                Next
+                                <img src="../../assets/mixed/forward.png" alt="forward">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div v-if="step3">
+            <div class="step-3-parent">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-md-10">
+                            <div class="row step-3__checkout">
+                                <div class="col-md-12 d-flex justify-contnet-center">
+                                    <div>
+                                        <img src="../../assets/mixed/visa.svg" alt="">
+                                    </div>
+                                    <div>
+                                        <img src="../../assets/mixed/master.svg" alt="">
+                                    </div>
+                                    <div>
+                                        <img src="../../assets/mixed/paypal.svg" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <md-field class="md-cont position-relative">
+                                        <label for="card-number">Card number</label>
+                                        <md-input 
+                                            name="card-number" 
+                                            class="form-md" 
+                                            id="card-number" 
+                                            autocomplete="off"
+                                            v-model="cardNumber"
+                                        />
+                                    </md-field>
+                                </div>
+                                <div class="col-md-12">
+                                    <md-field class="md-cont position-relative">
+                                        <label for="cardholder-name">Cardholder name</label>
+                                        <md-input 
+                                            name="cardholder-name" 
+                                            class="form-md" 
+                                            id="cardholder-name" 
+                                            autocomplete="off"
+                                            v-model="cardholderName"
+                                        />
+                                    </md-field>
+                                </div>
+                                <div class="col-md-12">
+                                    <md-field class="md-cont position-relative">
+                                        <label for="expireDate">Expire date</label>
+                                        <md-input 
+                                            name="expire-date" 
+                                            class="form-md" 
+                                            id="expireDate" 
+                                            autocomplete="off"
+                                            v-model="expireDate"
+                                        />
+                                    </md-field>
+                                </div>
+                                <div class="col-md-12">
+                                    <md-field class="md-cont position-relative">
+                                        <label for="cvv">CVV</label>
+                                        <md-input 
+                                            name="expire-date" 
+                                            class="form-md" 
+                                            id="cvv" 
+                                            autocomplete="off"
+                                            v-model="cvv"
+                                        />
+                                    </md-field>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-10 text-right">
+                            <button class="next-button" 
+                                @click="goToCheckout">
+                                Pay
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </div>
 </template>
@@ -215,9 +399,21 @@ export default {
     data() {
         return {
             showModal: false,
-            step1: true,
+            step1: false,
+            step2: true,
+            step3: false,
+            cardNumber: '',
+            cardholderName: '',
+            expireDate: '',
+            cvv: '',
         }
     },
+    methods: {
+        goToCheckout() {
+            this.step2 = false;
+            this.step3 = true;
+        }
+    }
 }
 </script>
 
@@ -543,5 +739,100 @@ export default {
     width: 100%;
     padding: 3.2rem 0;
     text-align: right;
+}
+
+// step 2
+.step-2-parent  {
+    margin: 60px 0 80px;
+
+    .step-2__list-parent {
+        border-left: 6px solid #31569C;
+        box-shadow: 0px 2px 10px #221F1F26;
+        margin-bottom: 60px;
+
+        .step-2__list-item {
+            padding: 25px; 
+            border-bottom: 1px solid #A2A2A2;
+
+            &:last-child {
+                border-bottom: none;
+            }
+
+            &:nth-child(odd) {
+                background: #D8E4FB;
+            }
+            &:nth-child(even) {
+                background: #fff;
+            }
+
+            img {
+                width: 28px;
+                margin-right: 10px;
+            }
+
+            .bold {
+                font-family: MontSemiBold, sans-serif;
+                font-size: 16px;
+
+                &.black {
+                    color: #4A4A4A;
+                }
+                &.blue {
+                    color: #31569C;
+                }
+            }
+
+            .normal {
+                font-family: PoppinsRegular, sans-serif;
+                font-size: 16px;
+
+                &.gray {
+                    color: #A2A2A2;
+                }
+            }
+            
+        }
+    }
+}
+
+// Step 3
+@import "src/assets/css/style";
+.step-3-parent {
+    margin: 60px 0 80px;
+
+    .step-3__checkout {
+        border: 1px solid #31569c78;
+        margin-bottom: 60px;
+        padding: 25px 70px 50px;
+    }
+
+    .md-cont  {
+        & label {
+            color: #31569C !important;
+        }
+    }
+}
+
+.next-button {
+    width: 173px;
+    height: 54px;
+    border-radius: 50px;
+    background: #31569C;
+    border: none;
+    color: #fff;
+    font-family: MontSemiBold, sans-serif;
+    transition: .3s;
+    outline: none;
+
+    img {
+        width: 10px;
+    }
+
+    &:hover {
+        background: #45AFDB;
+    }
+    &:focus, &:active {
+        outline: none;
+    }
 }
 </style>

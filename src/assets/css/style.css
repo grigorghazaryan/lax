@@ -113,6 +113,12 @@
   border-bottom: 3px solid #31569b;
 }
 
+@media (max-width: 767px) {
+  .show {
+    border-color: transparent;
+  }
+}
+
 @media (min-width: 1200px) {
   .dropdown-header, .form-control {
     width: 800px;
@@ -138,5 +144,18 @@
     max-height: 340px !important;
     overflow-y: auto !important;
   }
+}
+
+/* Change Autocomplete styles in Chrome*/
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus {
+  border: 1px solid white;
+  -webkit-text-fill-color: white;
+  -webkit-box-shadow: 0 0 0px 1000px white inset;
+  transition: background-color 5000s ease-in-out 0s;
 }
 /*# sourceMappingURL=style.css.map */
